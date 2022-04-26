@@ -10,21 +10,21 @@ function openNav() {
 
   function login(){
     //still to be added here if user entered correct password and username
-    window.location.href="home.html";
+    window.location.href="../HTML/home.html";
   }
   function logout(){
     //still to be added here if user entered correct password and username
-    window.location.href="index.html";
+    window.location.href="../HTML/index.html";
     
   }
 
   function register(){
-    window.location.href="register.html";
+    window.location.href="../HTML/registration.html";
   }
 function openProfile(){
-  window.location.href="pfp.html";
+  window.location.href="../HTML/pfp.html";
 }
 
 function editProfile(){
-  window.location.href="editprofile.html";
+  window.location.href="../HTML/editprofile.html";
 }
