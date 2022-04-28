@@ -8,32 +8,54 @@
   <script src="../JS/script.js"></script>
   
   <style>
-      h1{
-            margin: 0 0 0px 0;
-            position: relative;
-        }
+    h2{
+        margin: 0 0 0px 0;
+        position: relative;
+        font-size: 33px;
+    }
 
-        div.main{
-            margin: 40px auto 60px;
-            width:800px;
-        }
+    div.main{
+        margin: 40px auto 60px;
+        width:800px;
+    }
+    
+    .border{
+       margin: 40px auto 60px;
+        width:830px;
+        outline-color: black;
+        outline-style: double;
+        outline-offset: 0px;
+        background-color: rgb(120, 156, 189);
+    }
+
+    body {
+      background-image: url('../Images/prof bg.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
 
     button {
         background-color: #1ba099;
-        border: 2px;
+        /* border: 1px; */
         color: black;
-        padding: 15px 32px;
+        padding: 10px 15px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
+        /* display: inline-block; */
+        font-size: 14px;
         position: relative;
-        left: 500px;
+        /* left: 500px; */
+        float: right;
+        top:50px;
+        
         cursor: pointer;
+        border-radius: 16px;
         }
-    
+        
     button:hover{
       color:yellow;
+      cursor: pointer;
     }
     img{
         height:100px;
@@ -46,24 +68,26 @@
 </head>
 
 <body>
+  <div class="border">
   <div class="main">
-    <h1>Username <button onclick= "window.location.href='editprofile.html'">Edit Profile</button> </h1>
+    <h2>Chaos <button onclick= "window.location.href='editprofile.html'">Edit Profile</button> </h1>
     <img src="../Images/Chaos.jpg" alt="ProfPic">
 
     <div class="break"></div>
 
 <!--     <dt class="info"> -->
-        <h2>Description</h2>
+        <h3>Description</h3>
 
         <p>This is just a set up description place-holder. The content here                  is up for edits. Whatever is placed here does not matter and will                 eventually be replaced. LOREM IPSUM</p>
 
-        <h3>Birthday:</h3>
-        <p>Number of Games:</p>
+        <h3>Birthday: --:--:----</h3>
+        <p>Number of Games: X</p>
         
 <!--     </dt> -->
 
-        <h3>Account Balance: </h3><br>
+        <h3>Account Balance: --.-- P</h3><br>
         
     </div>
+  </div>
 </body>
 </html>
