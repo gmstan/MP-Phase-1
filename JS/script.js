@@ -32,3 +32,9 @@ function editProfile(){
 function finishRegis(){
   window.location.href="../HTML/index.html";
 }
+function goHomeFromGame(){
+  window.location.href="../home.html";
+}
+function goHomeFromPfp(){
+  window.location.href="home.html";
+}
