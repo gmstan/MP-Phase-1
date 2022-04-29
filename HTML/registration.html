@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  Registration Page
+  <title>
+    Registration Page
+  </title>
+  <script src="../JS/script.js"></script>
+  <script src="../JS/querylib.js"></script>
+  <link rel="stylesheet" href="../CSS/loginpage.css">
+  <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>
     <center>
-      <label for="username">Username: </label>
-      <input type="text" id="username">
-      <br>
-      <label for="pass">Password: </label>
-      <input type = "password" id="pass">
-      <br>
+      <div id ="forms">
+        <h1 class="headerlogin">Register to Game Manager</h1>
+        <label for="username">Username: </label>
+        <input type="text" id="username">
+        <br>
+        <label for="pass">Password: </label>
+        <input type = "password" id="pass">
+        <br>
+        <button id="registerbutton" onclick="finishRegis()">Finish Register</button>
+      </div>
     </center>
-      
+    <div class="animation">
+      <ul class="boxes">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+    </div>
 </body>
 </html>

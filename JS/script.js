@@ -28,3 +28,7 @@ function openProfile(){
 function editProfile(){
   window.location.href="../HTML/editprofile.html";
 }
+
+function finishRegis(){
+  window.location.href="../HTML/index.html";
+}
