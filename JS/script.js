@@ -26,7 +26,7 @@ function openNav() {
     window.location.href="../HTML/registration.html";
   }
 function openProfile(){
-  window.location.href="../HTML/pfps/Chaoszerker.html";
+  window.location.href="../HTML/pfps/tempo.html";
 }
 
 function editProfile(){
