@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Profile Page</title>
-  <script src="../JS/script.js"></script>
+  <script src="../../JS/script.js"></script>
   <style>
       h2{
         margin: 0 0 0px 0;
@@ -28,7 +28,7 @@
       }
 
     body {
-      background-image: url('../Images/prof bg.jpg');
+      background-image: url('../../Images/prof bg.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -95,21 +95,22 @@
 
 <body>
   <button onclick="goHomeFromPfp()" style="margin: 0 350px 0 0" >Home</button>
+  <button id="insidebox" onclick="changePic()">Edit Picture</button>
   <div class="border">
     <div class="main">
-       <form style="font-weight:bold; font-size: 30px; ">Username: </h2><input type="text" value="Chaos"></form>
-        <button id="insidebox" onclick="changePic()">Edit Picture</button>
-      <img src="../Images/Chaos.jpg" alt="ProfPic">
+       <form style="font-weight:bold; font-size: 30px; ">Username: </h2><input type="text" value="Liberation"></form>
+        
+      <img src="../../Images/profpics/Liberation.jpg" alt="ProfPic">
 
       <div class="break"></div>
 
 <!--     <dt class="info"> -->
         <h3>Description</h3>
         <form>
-          <input type="text" size="70" style=" padding:20px 10px; line-height:25px;">
+          <input type="text" id="description" size="70" style=" padding:20px 10px; line-height:25px;">
         </form>
 
-        <h3>Birthday: <form><input type="text"></form></h3>
+        <h3>Birthday: <form><input type="text" id="birthday"></form></h3>
         <p>Number of Games: X</p>
         
 <!--     </dt> -->

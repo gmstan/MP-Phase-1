@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Profile Page</title>
+  <script src="../../JS/script.js"></script>
+  <style>
+      h2{
+        margin: 0 0 0px 0;
+        position: relative;
+        font-size: 33px;
+      }
+
+        div.main{
+            margin: 40px auto 60px;
+            width:800px;
+        }
+
+      .border{
+      margin: 40px auto 60px;
+      width:830px;
+      outline-color: black;
+      outline-style: double;
+      outline-offset: 0px;
+      background-color: rgb(120, 156, 189);
+      }
+
+    body {
+      background-image: url('../../Images/prof bg.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    #insidebox {
+      background-color: #1ba099;
+      color: black;
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+      float: right;
+      top:50px;
+      cursor: pointer;
+      border-radius: 16px;
+      }
+      button{
+        background-color: #1ba099;
+        color: black;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        position: relative;
+        float: right;
+        top:50px;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+      button:hover{
+        color:yellow;
+      }
+
+      #insidebox:hover{
+      color:yellow;
+      cursor: pointer;
+    }
+    img{
+        height:100px;
+        width: 100px;
+      }
+
+    #save {
+      background-color: #1ba099;
+      color: black;
+      padding: 20px 25px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 10px;
+      }
+
+      #save:hover{
+      color:yellow;
+      cursor: pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <button onclick="goHomeFromPfp()" style="margin: 0 350px 0 0" >Home</button>
+  <button id="insidebox" onclick="changePic()">Edit Picture</button>
+  <div class="border">
+    <div class="main">
+       <form style="font-weight:bold; font-size: 30px; ">Username: </h2><input type="text" value="ColonelOppa"></form>
+        
+      <img src="../../Images/profpics/ColonelOppa.jpg" alt="ProfPic">
+
+      <div class="break"></div>
+
+<!--     <dt class="info"> -->
+        <h3>Description</h3>
+        <form>
+          <input type="text" id="description" size="70" style=" padding:20px 10px; line-height:25px;">
+        </form>
+
+        <h3>Birthday: <form><input type="text" id="birthday"></form></h3>
+        <p>Number of Games: X</p>
+        
+<!--     </dt> -->
+
+        <h3>Account Balance: --.-- P</h3><br>
+      </div>
+    </div>
+
+    <center>
+    <button style="float:unset" id="save" onclick="newProf()">Save Changes</button></center>
+</body>
+</html>

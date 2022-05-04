@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Profile Page</title>
+  <script src="../../JS/script.js"></script>
+  
+  <style>
+    h2{
+        margin: 0 0 0px 0;
+        position: relative;
+        font-size: 33px;
+    }
+
+    div.main{
+        margin: 40px auto 60px;
+        width:800px;
+    }
+    
+    .border{
+       margin: 40px auto 60px;
+        width:830px;
+        outline-color: black;
+        outline-style: double;
+        outline-offset: 0px;
+        background-color: rgb(120, 156, 189);
+    }
+
+    body {
+      background-image: url('../../Images/prof bg.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    button {
+        background-color: #1ba099;
+        /* border: 1px; */
+        color: black;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        /* display: inline-block; */
+        font-size: 14px;
+        position: relative;
+        /* left: 500px; */
+        float: right;
+        top:50px;
+        
+        cursor: pointer;
+        border-radius: 16px;
+        }
+        
+    button:hover{
+      color:yellow;
+      cursor: pointer;
+    }
+    img{
+        height:100px;
+        width: 100px;
+      }
+
+
+  </style>
+
+</head>
+
+<body>
+  <button onclick="goHomeFromPfp()" style="margin: 0 350px 0 0" >Home</button>
+  <div class="border">
+  <div class="main">
+    <h2>Acez <button onclick= "window.location.href='editAcez.html'">Edit Profile</button> </h1>
+    <img src="../../Images/profpics/Acez.jpg" alt="ProfPic">
+
+    <div class="break"></div>
+
+<!--     <dt class="info"> -->
+        <h3>Description</h3>
+
+        <p id ="desc">I offer boosting services for any FPS games</p>
+
+        <h3 id = "birth">Birthday: --:--:----</h3>
+        <p>Number of Games: X</p>
+        
+<!--     </dt> -->
+
+        <h3>Account Balance: --.-- P</h3><br>
+        
+    </div>
+  </div>
+</body>
+</html>
