@@ -18,20 +18,32 @@ div.main{
 
 button {
     background-color: #1ba099;
-    margin-top:5px;
+    /* margin-top:5px; */
     border: 2px;
     color: black;
-    padding: 15px 32px;
+    padding: 15px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     position: relative;
-    left: 500px;/*may need to make this inline because every game's title is different in length*/
+    border-radius: 16px;
+    /* float:right; */
+    /* left: 500px; may need to make this inline because every game's title is different in length */
 }
+
+.border{
+    margin: 40px auto 60px;
+     width:830px;
+     outline-color: black;
+     outline-style: double;
+     outline-offset: 0px;
+     background-color: rgb(120, 156, 189);
+ }
 
 button:hover{
     color:yellow;
+    cursor: pointer;
 }
 
 img{
