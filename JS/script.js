@@ -14,11 +14,11 @@ function openNav() {
   }
   function loginPage(){
     //still to be added here if user entered correct password and username
-    window.location.href="../HTML/login.html";
+    window.location.href="../HTML/index.html";
   }
   function logout(){
     //still to be added here if user entered correct password and username
-    window.location.href="../HTML/login.html";
+    window.location.href="../HTML/index.html";
     
   }
 
@@ -34,7 +34,7 @@ function editProfile(){
 }
 
 function finishRegis(){
-  window.location.href="../HTML/login.html";
+  window.location.href="../HTML/index.html";
 }
 function goHomeFromGame(){
   window.location.href="../home.html";

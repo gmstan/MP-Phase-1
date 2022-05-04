@@ -6,69 +6,10 @@
   <meta name="viewport" content="width=device-width">
   <title>Profile Page</title>
   <script src="../../JS/script.js"></script>
-  
-  <style>
-    h2{
-        margin: 0 0 0px 0;
-        position: relative;
-        font-size: 33px;
-    }
-
-    div.main{
-        margin: 40px auto 60px;
-        width:800px;
-    }
-    
-    .border{
-       margin: 40px auto 60px;
-        width:830px;
-        outline-color: black;
-        outline-style: double;
-        outline-offset: 0px;
-        background-color: rgb(120, 156, 189);
-    }
-
-    body {
-      background-image: url('../../Images/prof bg.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-
-    button {
-        background-color: #1ba099;
-        /* border: 1px; */
-        color: black;
-        padding: 10px 15px;
-        text-align: center;
-        text-decoration: none;
-        /* display: inline-block; */
-        font-size: 14px;
-        position: relative;
-        /* left: 500px; */
-        float: right;
-        top:50px;
-        
-        cursor: pointer;
-        border-radius: 16px;
-        }
-        
-    button:hover{
-      color:yellow;
-      cursor: pointer;
-    }
-    img{
-        height:100px;
-        width: 100px;
-      }
-
-
-  </style>
-
+  <link rel="stylesheet" href="../../CSS/profile.css">
 </head>
 
 <body>
-  <button onclick="goHomeFromPfp()" style="margin: 0 350px 0 0" >Home</button>
   <div class="border">
   <div class="main">
     <h2>Chaoszerker <button onclick= "window.location.href='editChaoszerker.html'">Edit Profile</button> </h1>
@@ -90,5 +31,9 @@
         
     </div>
   </div>
+  <center>
+    <button id="home" onclick="goHomeFromPfp()" style="float:unset" >Home</button>
+    <button id="delete" style="float:unset" >Delete Profile</button>
+  </center>
 </body>
 </html>
