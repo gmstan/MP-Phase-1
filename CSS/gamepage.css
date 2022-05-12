@@ -9,11 +9,11 @@ body{
 }
 div.main{
     margin: 20px auto 60px;
+    padding: 20px;
     width:865px;
     height:1000px;
     background-color: rgb(113, 131, 173);
     border: 7px solid rgb(28, 48, 66);
-    
 }
 
 button {
@@ -46,11 +46,11 @@ button {
 }
 .border{
     margin: 40px auto 60px;
-     width:830px;
-     outline-color: black;
-     outline-style: double;
-     outline-offset: 0px;
-     background-color: rgb(120, 156, 189);
+    width:830px;
+    outline-color: black;
+    outline-style: double;
+    outline-offset: 0px;
+    background-color: rgb(120, 156, 189);
  }
 
 button:hover{

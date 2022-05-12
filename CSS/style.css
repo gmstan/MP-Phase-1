@@ -1,7 +1,12 @@
 
+*{
+  font-family: sans-serif;
+}
+
 body{
     background: linear-gradient(#5fbfff,#294e5f);
     height:100vh;
+    
 }
 
 /* { */
@@ -133,6 +138,8 @@ body{
     margin: 20px 2px;
     cursor: pointer;
     float: right;
+
+    border-radius: 16px;
 }
 #viewprofile:hover {
     background-color: #0a76a4;
@@ -150,6 +157,8 @@ body{
     margin: 20px 2px;
     cursor: pointer;
     float: right;
+
+    border-radius: 16px;
   }
  #logout:hover{
     color:yellow;
@@ -160,6 +169,10 @@ body{
     .sidenav a {font-size: 18px;}
   }
   
+  #Topbuttons{
+    background-color: #1187b9;
+  }
+
   .libraryButton{
     background-color: #4CAF50;
     border: none;
@@ -171,6 +184,8 @@ body{
     font-size: 16px;
     margin: 20px 2px;
     cursor: pointer;
+
+    border-radius: 16px;
   }
   
    a:hover, a:active{
@@ -195,4 +210,9 @@ body{
     border:1px solid black;
     float:left;
     margin: 15px 10px 0 0;
+  }
+
+  #games:hover{
+    transition:0.5s;
+    transform:scale(1.08);
   }
