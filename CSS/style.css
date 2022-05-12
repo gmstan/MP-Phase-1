@@ -4,7 +4,6 @@ body{
     height:100vh;
 }
 
-/* Divinector. (2019, April 5). Animated Background with Pure CSS and Html | No Javascript no Jquery [Video]. Youtube. https://www.youtube.com/watch?v=5RoXCs54CN8 */
 /* { */
     .animation .boxes{
       z-index: -1;
@@ -17,7 +16,6 @@ body{
         height: 100%;
         overflow: hidden;
     }
-
     .boxes li{
         position: absolute;
         display: block;
@@ -28,7 +26,6 @@ body{
         animation: animate 20s linear infinite;
         bottom: -150px;
     }
-
     .boxes li:nth-child(1){
         left:86%;
         width: 80px;
@@ -60,7 +57,6 @@ body{
         width: 35px;
         height: 35px;
         animation-delay:0s;
-
     }
     .boxes li:nth-child(6){
         left:18%;
@@ -78,7 +74,7 @@ body{
             opacity: 1;
         }
     }
-/* } */
+/* } *//* Divinector. (2019, April 5). Animated Background with Pure CSS and Html | No Javascript no Jquery [Video]. Youtube. https://www.youtube.com/watch?v=5RoXCs54CN8 */
 
 .sidenav {
     height: 100%; /* 100% Full-height */
