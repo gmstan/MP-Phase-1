@@ -1,3 +1,8 @@
+
+  *{
+    font-family: sans-serif;
+  }
+
 h2{
     margin: 0 0 0px 0;
     position: relative;
@@ -11,13 +16,11 @@ h2{
   }
 
   .border{
-  margin: top 100px;
-  margin: 40px auto 60px;
-  width:830px;
-  outline-color: black;
-  outline-style: double;
-  outline-offset: 0px;
-  background-color: rgb(143, 186, 240);
+    margin: 0px auto 1px;
+    width:830px;
+    outline-color: black;
+    outline-style: solid;
+    background-color: rgb(143, 186, 240);
   }
 
   body {

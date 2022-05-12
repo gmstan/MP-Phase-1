@@ -1,3 +1,7 @@
+*{
+    font-family: sans-serif;
+}
+
 h1{
     margin: 0 0 6px 0;
     width: 450px;
@@ -5,14 +9,18 @@ h1{
 }
 
 body{
-    background: url("../Images/bg.jpg");
+    background: url("../Images/prof bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 div.main{
     margin: 20px auto 60px;
     padding: 20px;
     width:865px;
     height:1000px;
-    background-color: rgb(113, 131, 173);
+    /* background-color: #7183ad; */
+    background: linear-gradient(#9eb0db,#8374b9);
     border: 7px solid rgb(28, 48, 66);
 }
 
@@ -28,6 +36,7 @@ button {
     position: relative;
     border-radius: 16px;
 }
+
 #reviewbuttons button{
     font-size:12px;
     padding:5px;
@@ -59,10 +68,17 @@ button:hover{
 }
 
 img{
-    height:500px;
-    width: 860px;
+    height:430px;
+    width: 850px;
     float:left;
     margin:30px 0 20px 0;
+    /* border: 5px solid rgb(85, 85, 85); */
+    /* border-style: outset;
+    border-color: rgba(179, 170, 211, 0.725);
+    border-width: 7px;
+    border-opac */
+
+    border: 7px outset rgba(151, 139, 190, 0.377);
 }
 
 dt.info{
