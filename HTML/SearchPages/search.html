@@ -10,9 +10,28 @@
 </head>
 
 <body>
-    <center>
-        <a class="searchbar"><input type="text" placeholder="Search a Game" name="searchvalue"></a>
-    </center>
+    <div id = "Topbuttons">
+        <button id="home" style="float: left" onclick="goHomeFromSearch()">Home</button>
+        <button id="unfiltered">Unfiltered Search</button>
+        <button id="genre">Search by Genre</button>
+        <button id="rating">Search by Rating</button>
+        <br><br><br><br>
+        <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+        <center>
+        <div id="main">
+            <h1>Search a Game</h1>
+        </div>
+        </center>
+        
+    </div>
+    <dd>
+        <center>
+            <div class="searchbar">
+                <input type="text" placeholder="Search a Game" name="searchvalue">
+            </div>
+        </center>
+        
+    </dd>
     
     <div class="animation">
         <ul class="boxes">

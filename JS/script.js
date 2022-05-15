@@ -42,7 +42,9 @@ function goHomeFromGame(){
 function goHomeFromPfp(){
   window.location.href="../home.html";
 }
-
+function goHomeFromSearch(){
+  window.location.href="../home.html";
+}
 function search(){
   window.location.href="../HTML/SearchPages/search.html";
 }
