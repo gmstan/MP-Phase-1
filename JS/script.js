@@ -49,3 +49,15 @@ function search(){
   window.location.href="../HTML/SearchPages/search.html";
 }
 
+function searchByGenre(){
+  window.location.href="genre.html";
+}
+
+function searchByRating(){
+  window.location.href="rating.html";
+}
+
+function searchByName(){
+  window.location.href="search.html";
+}
+
