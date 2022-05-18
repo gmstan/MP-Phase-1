@@ -19,7 +19,6 @@ div.main{
     padding: 20px;
     width:865px;
     height:1000px;
-    /* background-color: #7183ad; */
     background: linear-gradient(#9eb0db,#8374b9);
     border: 7px solid rgb(28, 48, 66);
 }
@@ -65,6 +64,7 @@ button {
 button:hover{
     color:yellow;
     cursor: pointer;
+    background-color: #1cb3ab;;
 }
 
 img{
@@ -72,12 +72,6 @@ img{
     width: 850px;
     float:left;
     margin:30px 0 20px 0;
-    /* border: 5px solid rgb(85, 85, 85); */
-    /* border-style: outset;
-    border-color: rgba(179, 170, 211, 0.725);
-    border-width: 7px;
-    border-opac */
-
     border: 7px outset rgba(151, 139, 190, 0.377);
 }
 

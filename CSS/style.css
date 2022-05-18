@@ -170,10 +170,6 @@ body{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
-  
-  #Topbuttons{
-    /* background-color: #1187b9; */
-  }
 
   .libraryButton{
     background-color: #4CAF50;
@@ -222,12 +218,6 @@ body{
     transform:scale(1.11);
   }
 
-  #searchbar{
-    position: absolute;
-    height: 200px;
-    width: 100px;
-  }
-
   #search{
     background-color: rgb(10, 118, 164);
     color: white;
@@ -242,65 +232,7 @@ body{
     border-radius: 16px;
   }
 
-  #unfiltered{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
+  #search:hover{
+    background-color: #3ab0e2;
+    color:yellow;
   }
-
-  #genre{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
-  }
-
-  #rating{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
-  }
-
-  #home{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
-}
-
-#searchbar{
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
