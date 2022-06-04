@@ -18,7 +18,8 @@
     color:rgb(241, 241, 238);
 }
 body{
-    background-image: url('../Images/loginPhoto.jpg');
+    /* background-image: url('../Images/loginPhoto.jpg'); */
+    background-image: url('/loginPhoto.jpg');
     background-size: 1920px;
     background-repeat: no-repeat;
     background-attachment: fixed;
