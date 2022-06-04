@@ -14,7 +14,7 @@ function openNav() {
   }
   function loginPage(){
     //still to be added here if user entered correct password and username
-    window.location.href="../HTML/index.html";
+    window.location.href="../HTML/views/index.ejs";
   }
   function logout(){
     //still to be added here if user entered correct password and username
@@ -23,7 +23,7 @@ function openNav() {
   }
 
   function register(){
-    window.location.href="../HTML/registration.html";
+    window.location.href="../HTML/views/registration.ejs";
   }
 function openProfile(){
   window.location.href="../HTML/pfps/tempo.html";
