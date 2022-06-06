@@ -23,23 +23,27 @@ app.get('/register', (req, res)=>{
 app.post('/login-post', (req, res)=>{
 
 });
-app.post('/register-post', (req, res)=>{
-    
+app.post('/register-post', async(req, res)=>{
 
-        //const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        // code here for adding to the database
-        Account.create(req.body, (error, account)=>{
-                console.log(req.body)
-                res.redirect('/')
-            }
-        )
-        // Account.create({
-        //     username : 'Colonel',
-        //     pass : '12345',
-        // }), (error, account)=>{
-        //     console.log(req.body)
-        // }
-   
+        try{
+             const hashedPassword = await bcrypt.hash(req.body.pass, 10)
+           
+
+            // code here for adding to the database
+            Account.create({
+                    username: req.body.username,
+                    pass: hashedPassword,
+                },
+                    (error, account)=>{
+                        console.log(error, account);
+                        
+            })
+            res.redirect('/');    
+        }
+        catch{
+            res.redirect('/register');
+        }
+      
 })
 
 app.listen(3000)

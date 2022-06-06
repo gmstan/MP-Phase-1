@@ -57,7 +57,14 @@ body{
     cursor: pointer;
     
 }
-#registerbutton:hover{
+#registerbutton > a{
+    text-decoration: none;
+    color: white;
+}
+#registerbutton > a:hover{
     color:yellow;
+}
+#registerbutton:hover{
+  
     background-color: #6dcf71;
 }
