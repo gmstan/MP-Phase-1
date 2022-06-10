@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Profile Page</title>
+  <script src="../../JS/script.js"></script>
+  <link rel="stylesheet" href="../../CSS/editprof.css">
+</head>
+
+<body>
+  
+  <div class="border">
+    <div class="main">
+      <form action= "/register-details" method="POST">
+       <form style="font-weight:bold; font-size: 30px; "><h3>Username:  {{name}}</h3><br>
+        
+      <img src="../../Images/profpics/Acez.jpg" alt="ProfPic"> <input type="file" name="picture"> <br />
+
+      <div class="break"></div>
+
+        <h3>Description</h3>
+          <input type="text" name="description" id="description" size="70" style=" padding:20px 10px; line-height:25px;">
+        
+
+        <h3>Birthday: <input type="text" id="birthday" name="birthday"></h3>
+        <p>Number of Games: 2</p>        
+
+        <h3>Account Balance: P 5000</h3><br>
+        <center>
+             
+          <button style="float:unset" id="save" type="submit">Save Changes</button>
+        </center>
+        </form>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -21,6 +21,7 @@ h2{
     outline-color: black;
     outline-style: solid;
     background-color: rgb(143, 186, 240);
+    padding:1px;
   }
 
   body {

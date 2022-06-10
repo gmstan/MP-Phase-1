@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const app = express();
 const bcrypt = require('bcrypt');
@@ -7,9 +5,7 @@ const mongoose = require('mongoose');
 const flash = require('express-flash')
 const session = require('express-session');
 const hbs = require("hbs");
-
 const Account = require('./database/models/account');
-
 
 mongoose.connect('mongodb://localhost/AccountDB');
 
@@ -21,19 +17,12 @@ app.use(express.json());
 // Flash
 app.use(flash());
 
-// Global messages vars
-// app.use((req, res, next) => {
-//   res.locals.success_msg = req.flash('success_msg');
-//   res.locals.error_msg = req.flash('error_msg');
-//   next();
-// });
+
 app.use(session({
     secret: 'secretcode',
     resave: false,
     saveUninitialized: false
 }))
-// app.use(passport.initialize())
-// app.use(passport.session())
 
 app.use(express.static(__dirname));
 
@@ -43,6 +32,44 @@ app.get('/', (req, res)=>{
 })
 app.get('/register', (req, res)=>{
     res.render('registration.hbs')
+})
+app.get('/profile-register', (req, res)=>{
+    
+    res.render('profile-regis.hbs', {
+        name: "asdf",
+    })
+})
+app.post('register-details', (req,res)=>{
+    Account.findOne({username : "test"},(err, user)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            if(!user){
+                console.log("no user exists")
+            }
+            else{
+                if (req.body.picture){
+                    user.picture = req.body.picture
+                }
+                if(req.body.description){
+                    user.desription = req.body.description
+                }
+                if(req.body.birthday){
+                    user.birthday = req.body.birthday
+                }
+                user.save((err, updatedUser)=>{
+                    if (err){
+                        console.log(err)
+                    }
+                    else{
+                        res.send(updatedUser)
+                        res.redirect('/')
+                    }
+                })
+            }
+        }
+    })
 })
 app.post('/login-post', (req, res)=>{
    Account.findOne({username : req.body.username}, (err, user)=>{
@@ -85,7 +112,10 @@ app.post('/register-post', async(req, res)=>{
                         console.log(error, account);
                         
             })
-            res.redirect('/');    
+          
+            
+            //res.redirect('/');
+            res.redirect('/profile-register')    
         }
         catch{
             res.redirect('/register');
