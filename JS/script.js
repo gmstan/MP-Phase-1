@@ -60,4 +60,7 @@ function searchByRating(){
 function searchByName(){
   window.location.href="search.html";
 }
-
+function loadFile(event){
+  var output = document.getElementById('displaypic');
+  output.src = URL.createObjectURL(event.target.files[0])
+}

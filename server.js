@@ -6,14 +6,17 @@ const flash = require('express-flash')
 const session = require('express-session');
 const hbs = require("hbs");
 const Account = require('./database/models/account');
+const fileUpload = require('express-fileupload');
 
-mongoose.connect('mongodb://localhost/AccountDB');
+acc = ""
+mongoose.connect('mongodb://localhost/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
 
 app.set('view-engine', 'hbs');
 app.set('views','./HTML/views');
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
+
 // Flash
 app.use(flash());
 
@@ -25,7 +28,7 @@ app.use(session({
 }))
 
 app.use(express.static(__dirname));
-
+app.use(fileUpload())
 app.get('/', (req, res)=>{
     res.render('index.hbs')
 
@@ -36,40 +39,50 @@ app.get('/register', (req, res)=>{
 app.get('/profile-register', (req, res)=>{
     
     res.render('profile-regis.hbs', {
-        name: "asdf",
+        name: acc,  
     })
 })
-app.post('register-details', (req,res)=>{
-    Account.findOne({username : "test"},(err, user)=>{
-        if(err){
-            console.log(err)
-        }
-        else{
-            if(!user){
-                console.log("no user exists")
+app.post('/register-details', (req,res)=>{
+   
+    //const image = req.files
+    
+    //image.mv(path.resolve(__dirname, 'Images/profpics', image.name), (err)=>{
+        Account.findOne({username : acc},(err, user)=>{
+            if(err){
+                console.log(err)
             }
             else{
-                if (req.body.picture){
-                    user.picture = req.body.picture
+                if(!user){
+                    console.log("no user exists")
                 }
-                if(req.body.description){
-                    user.desription = req.body.description
-                }
-                if(req.body.birthday){
-                    user.birthday = req.body.birthday
-                }
-                user.save((err, updatedUser)=>{
-                    if (err){
-                        console.log(err)
+                else{
+                    
+                    if (req.body.picture){
+                        user.picture =  "Images/profpics/" + req.body.picture;
                     }
-                    else{
-                        res.send(updatedUser)
-                        res.redirect('/')
+                    if(req.body.description){
+                        user.description = req.body.description
                     }
-                })
+                    if(req.body.birthday){
+                        user.birthday = req.body.birthday
+                    }
+                    user.save((err, updatedUser)=>{
+                        if (err){
+                            console.log(err)
+                        }
+                        else{
+                            //res.send(updatedUser)
+                            res.redirect('/')
+                        }
+                    })
+                }
+                
             }
-        }
-    })
+        });
+       
+    //})
+    
+
 })
 app.post('/login-post', (req, res)=>{
    Account.findOne({username : req.body.username}, (err, user)=>{
@@ -112,9 +125,7 @@ app.post('/register-post', async(req, res)=>{
                         console.log(error, account);
                         
             })
-          
-            
-            //res.redirect('/');
+            acc = req.body.username
             res.redirect('/profile-register')    
         }
         catch{

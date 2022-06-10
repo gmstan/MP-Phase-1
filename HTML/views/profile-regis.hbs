@@ -13,10 +13,13 @@
   
   <div class="border">
     <div class="main">
-      <form action= "/register-details" method="POST">
+      <form action= "/register-details" method="POST" >
        <form style="font-weight:bold; font-size: 30px; "><h3>Username:  {{name}}</h3><br>
-        
-      <img src="../../Images/profpics/Acez.jpg" alt="ProfPic"> <input type="file" name="picture"> <br />
+    <div class ="container">
+        <img id="displaypic" style="width:200px;height:200px"><br>
+         <input type="file" id="picture" name="picture" onchange="loadFile(event)"> <br />
+
+    </div>
 
       <div class="break"></div>
 
@@ -25,9 +28,7 @@
         
 
         <h3>Birthday: <input type="text" id="birthday" name="birthday"></h3>
-        <p>Number of Games: 2</p>        
-
-        <h3>Account Balance: P 5000</h3><br>
+        <h3>Number of Games: 2</h3>
         <center>
              
           <button style="float:unset" id="save" type="submit">Save Changes</button>
