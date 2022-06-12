@@ -37,7 +37,7 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 2px;
+    margin: 17px 2px;
     cursor: pointer;
 }
 #loginbutton:hover{
@@ -48,23 +48,17 @@ body{
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 18px 23px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 2px;
+    margin: 5px 2px;
     cursor: pointer;
     
 }
-#registerbutton > a{
-    text-decoration: none;
-    color: white;
-}
-#registerbutton > a:hover{
-    color:yellow;
-}
 #registerbutton:hover{
-  
+    color:yellow;
     background-color: #6dcf71;
 }
+

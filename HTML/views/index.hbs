@@ -25,7 +25,7 @@
             <img src="../../Images/icon.png" alt="icon">
             <h1 class="headerlogin">Login to Game Manager</h1>
 
-            <form action ="/login-post" method = "POST">
+            <form action ="/login-post" method = "POST" style="margin:0 0 0 0">
                 <label for="username">Username: </label>
                 <input type="text" id="username" name ="username">
                 <br><br>
@@ -33,9 +33,13 @@
                 <input type = "password" id="pass" name="pass">
                 <br>
                 <button id="loginbutton" type="submit">Login</button>
-                <button id="registerbutton" > <a href = "/register" style="text-decoration:none;">Register</a></button>
+                
             </form>
-            
+            <center>
+            <form action ="/register" method="GET">
+                 <button id="registerbutton" type="submit"> Register</button>
+            </form>
+            </center>
             <br>
             <div style="position:relative;float:right;top:60px;">
                 <a style="color:rgb(107, 252, 252); " href='https://www.freepik.com/psd/keyboard-mouse' target="_blank">Keyboard mouse psd created by Kerfin7 - www.freepik.com</a>

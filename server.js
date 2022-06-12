@@ -49,7 +49,6 @@ app.get('/profile-register', (req, res)=>{
 app.post('/register-details', (req,res)=>{
 
     const image = req.files.picture
-    console.log(req.body.picture)
     image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
         Account.findOne({username : acc},(err, user)=>{
             if(err){
