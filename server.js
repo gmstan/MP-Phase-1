@@ -7,6 +7,8 @@ const session = require('express-session');
 const hbs = require("hbs");
 const Account = require('./database/models/account');
 const fileUpload = require('express-fileupload');
+const path = require('path')
+//const bodyparser = require('body-parser')
 
 acc = ""
 mongoose.connect('mongodb://localhost/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
@@ -16,6 +18,8 @@ app.set('views','./HTML/views');
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
+// app.use(bodyparser.json())
+// app.use(bodyparser.urlencoded({extended: true}))
 
 // Flash
 app.use(flash());
@@ -43,10 +47,10 @@ app.get('/profile-register', (req, res)=>{
     })
 })
 app.post('/register-details', (req,res)=>{
-   
-    //const image = req.files
-    
-    //image.mv(path.resolve(__dirname, 'Images/profpics', image.name), (err)=>{
+
+    const image = req.files.picture
+    console.log(req.body.picture)
+    image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
         Account.findOne({username : acc},(err, user)=>{
             if(err){
                 console.log(err)
@@ -57,8 +61,8 @@ app.post('/register-details', (req,res)=>{
                 }
                 else{
                     
-                    if (req.body.picture){
-                        user.picture =  "Images/profpics/" + req.body.picture;
+                    if (image.name){
+                        user.picture =  "Images/profpics/" + image.name
                     }
                     if(req.body.description){
                         user.description = req.body.description
@@ -80,8 +84,8 @@ app.post('/register-details', (req,res)=>{
             }
         });
        
-    //})
-    
+      });
+
 
 })
 app.post('/login-post', (req, res)=>{
@@ -122,7 +126,7 @@ app.post('/register-post', async(req, res)=>{
                     pass: hashedPassword,
                 },
                     (error, account)=>{
-                        console.log(error, account);
+                        //console.log(error, account);
                         
             })
             acc = req.body.username
