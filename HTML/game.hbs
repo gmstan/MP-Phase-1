@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Game Library Manager</title>
+  <link rel="stylesheet" type="text/css" href = "../../CSS/gamepage.css">
+  <script src="../../JS/script.js"></script>
+</head>
+
+<body>
+    <button style="left:0px;" id="homepage" onclick="goHomeFromGame()">Home</button>
+  <div class="main">
+    <h1 class="title">{{title}}<button style="left:540px;" onclick="addGame()">REMOVE GAME</button></h1>
+
+    <img src="../../Images/{{this.image}}" >   {{!-- idk if needed alt="Minecraft Wide" --}}
+
+    <div class="break"></div>
+
+    <dt class="info">
+        <h2>Description</h2>
+
+        <p>{{description}}</p>
+
+        <h3>Genre</h3>
+        <p>{{genre}}</p>
+    </dt>
+
+    <dd class="rating">
+      <h3>Rating: {{rating}}</h3>
+      <div id="reviewbuttons">
+
+        {{! if there is review, then only delete and edit (disable/remove add)           if no review, only add}}
+        <button>Add Review</button>
+        <button>Delete Review</button>
+        <button>Edit Review</button>
+
+      </div>
+      <div id="reviews">
+        <center><h4>Reviews</h4></center>
+        <p>{{reviews}}</p>
+      </div>
+      
+    </dd>
+  </div>
+</body>
+</html>
