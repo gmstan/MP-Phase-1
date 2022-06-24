@@ -33,21 +33,35 @@ app.use(session({
 
 app.use(express.static(__dirname));
 app.use(fileUpload())
-app.get('/', (req, res)=>{
-    res.render('index.hbs')
 
+app.get('/log-out', (req, res)=>{
+    req.session.user = "";
+    req.session.name = "";
+    res.render('index.hbs');
 })
+
+app.get('/view-profile', (req,res)=>{
+    res.render('profile.hbs', {
+        name: acc,
+    });
+})
+
+app.get('/', (req,reqs) =>{
+    res.render('index.hbs');
+})
+
 app.get('/register', (req, res)=>{
     res.render('registration.hbs')
 })
+
 app.get('/profile-register', (req, res)=>{
     
     res.render('profile-regis.hbs', {
         name: acc,  
     })
 })
-app.post('/register-details', (req,res)=>{
 
+app.post('/register-details', (req,res)=>{
     const image = req.files.picture
     image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
         Account.findOne({username : acc},(err, user)=>{
@@ -87,6 +101,7 @@ app.post('/register-details', (req,res)=>{
 
 
 })
+
 app.post('/login-post', (req, res)=>{
    Account.findOne({username : req.body.username}, (err, user)=>{
        if (err){

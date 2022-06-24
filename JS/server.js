@@ -22,7 +22,6 @@ app.use(fileUpload());
 
 // const bodyParser = require('body-parser');
 
-
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/', (req,res)=>{
