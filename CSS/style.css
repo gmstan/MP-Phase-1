@@ -171,7 +171,7 @@ body{
     .sidenav a {font-size: 18px;}
   }
 
-  .libraryButton{
+  #add{
     background-color: #4CAF50;
     border: 2px solid rgb(42, 100, 70);
     color: white;
@@ -185,7 +185,7 @@ body{
     border-radius: 16px;
   }
 
-  .libraryButton:hover{
+  #add:hover{
     background-color: #4fcc53;
   }
   
@@ -217,6 +217,7 @@ body{
     transition:0.5s;
     transform:scale(1.11);
   }
+
 
   #search{
     background-color: rgb(10, 118, 164);

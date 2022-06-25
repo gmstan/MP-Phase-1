@@ -11,17 +11,19 @@
 
 <body>
    
-    <div id="mySidenav" class="sidenav">
+    <!-- <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <h2 id = "navtitle"> My Library</h2>
         <a class="searchbar"><input type="text" placeholder="Search a Game" name="searchvalue"></a>
         <a href="../HTML/GamePages/Pokemon.html">Pokemon</a>
         <a href="../HTML/GamePages/Minecraft.html">Minecraft</a>
-    </div>
+    </div> -->
 
     <!-- Use any element to open the sidenav -->
     <div id = "Topbuttons">
-        <a onclick="openNav()" class="libraryButton" href="#">My Game Library</a>
+        <!-- <a onclick="openNav()" class="libraryButton" href="#">My Game Library</a> -->
+        <button id="add" action = "/addGame">Add Game</button>
+
         <button id="logout" onclick="logout()">Log out</button>
         <button id="viewprofile" onclick="openProfile()">View Profile</button>
         <button id="search" onclick="search()">Search Game</button>

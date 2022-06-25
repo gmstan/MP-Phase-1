@@ -114,6 +114,7 @@ app.post('/login-post', (req, res)=>{
                         req.session.user = user._id;
                         req.session.name = user.username;
                         console.log("Hello, " + req.body.username);
+                        res.render("home.hbs");
                     }
                     else{
                         console.log("username or password did not match")
@@ -134,6 +135,20 @@ app.post('/register-post', async(req, res)=>{
              const hashedPassword = await bcrypt.hash(req.body.pass, 10)
            
 
+            //check if username exists
+            // Account.findOne({username : req.body.user},(err,result)=>{
+            //     if(!result)
+            //     {
+            //         // put create here
+
+            //     }
+
+            //     else
+            //         console.log.appl("Account with Username already exists");
+
+            // })
+
+
             // code here for adding to the database
             Account.create({
                     username: req.body.username,
@@ -150,6 +165,32 @@ app.post('/register-post', async(req, res)=>{
             res.redirect('/register');
         }
       
-})
+});
+
+
+
+app.post('/game-direct', async(req,res)=>{
+    // try{
+    //     //find one (game name)
+    //     if(found)
+    //         res.render('game.hbs',{//game found})
+    // }
+    // catch{
+    //     res.render('/');
+    // }
+});
+
+app.get('/addGame',(req,res)=>{
+
+//     res.findOne(//gameTitle,(err,game)=>{
+//         if(game)
+//         {
+//             res.render('game.hbs',game);
+//         }
+//         else
+//             res.render('/');
+//     })
+
+});
 
 app.listen(3000)
