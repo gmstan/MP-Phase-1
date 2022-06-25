@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Game = require("../database/game.js");
+// const Game = require("game.js");
 const AccSchema = new mongoose.Schema({
     username : String,
     pass : String,
