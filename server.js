@@ -6,12 +6,14 @@ const flash = require('express-flash')
 const session = require('express-session');
 const hbs = require("hbs");
 const Account = require('./database/models/account');
+const Game = require('./database/models/game')
 const fileUpload = require('express-fileupload');
 const path = require('path')
 //const bodyparser = require('body-parser')
 
 acc = ""
 mongoose.connect('mongodb://localhost/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
+
 
 app.set('view-engine', 'hbs');
 app.set('views','./HTML/views');
@@ -39,21 +41,48 @@ app.get('/log-out', (req, res)=>{
     req.session.name = "";
     res.render('index.hbs');
 })
-
+app.get('/delete-profile', (req, res)=>{
+    Account.deleteOne({username:acc}, (err, user)=>{
+        if (err){
+            console.log(err)
+        }
+        else{
+            res.redirect('/');
+        }
+       
+    })
+})
 app.get('/view-profile', (req,res)=>{
-    res.render('profile.hbs', {
-        name: acc,
-    });
+    // retrieve info from db
+    console.log(acc);
+    Account.findOne({username:acc}, (err, user)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render('profile.hbs', {
+                name: user.username,
+                image: user.picture,
+                description: user.description,
+                birthday: user.birthday,
+                gameNo: user.games,
+            });
+        }
+    })
+
+   
 })
 
-app.get('/', (req,reqs) =>{
+app.get('/', (req,res) =>{
     res.render('index.hbs');
 })
 
 app.get('/register', (req, res)=>{
     res.render('registration.hbs')
 })
-
+app.get('/home', (req, res)=>{
+    res.render('home.hbs');
+})
 app.get('/profile-register', (req, res)=>{
     
     res.render('profile-regis.hbs', {
@@ -113,6 +142,7 @@ app.post('/login-post', (req, res)=>{
                     if (result){
                         req.session.user = user._id;
                         req.session.name = user.username;
+                        acc = user.username;
                         console.log("Hello, " + req.body.username);
                         res.render("home.hbs");
                     }
@@ -153,6 +183,7 @@ app.post('/register-post', async(req, res)=>{
             Account.create({
                     username: req.body.username,
                     pass: hashedPassword,
+                    games: 0,
                 },
                     (error, account)=>{
                         //console.log(error, account);

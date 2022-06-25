@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width">
   <title>Game Library Manager</title>
   <link href="../CSS/style.css" rel="stylesheet" type="text/css" />
-  <script src="../JS/script.js"></script>
+  <script src="../../JS/script.js"></script>
+  <script src="../../JS/querylib.js"></script>
 </head>
 
 <body>
@@ -16,10 +17,10 @@
         {{!-- <a onclick="openNav()" class="libraryButton" href="#">My Game Library</a> --}}
 
 
-        {{!-- <form method="put"> --}}
-            <button id="add" action = "/addGame">Add Game</button>
-            <button id="logout" action = "/log-out">Log out</button>
-            <button id="viewprofile" action = "/view-profile">View Profile</button>
+        {{!-- <form method="put">--}}
+            <button id="add" action = "addgame()">Add Game</button>
+            <form action="/log-out" method="get"><button id="logout" onclick = "logout()">Log out</button></form>
+           <form action='/view-profile' method="get"><button id="viewprofile" onclick = "viewprof()">View Profile</button></form>
         {{!-- </form> --}}
        
         

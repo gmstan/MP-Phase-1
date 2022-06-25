@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Game = require("../database/game.js");
+const Game = require("./game.js");
 const AccSchema = new mongoose.Schema({
     username : String,
     pass : String,
@@ -8,8 +8,7 @@ const AccSchema = new mongoose.Schema({
     birthday: String,
     games: String,
     balance: String,
-    // add birthday etc..
-    libGames: [Game]
+    //libGames: [Game.PostSchema],
 })
 
 const Account = mongoose.model('Account', AccSchema)
