@@ -18,7 +18,7 @@
 
 
         {{!-- <form method="put">--}}
-            <button id="add" action = "addgame()">Add Game</button>
+            <form action="/add" method="put"><button id="add" onclick = "addgame()">Add Game</button></form>
             <form action="/log-out" method="get"><button id="logout" onclick = "logout()">Log out</button></form>
            <form action='/view-profile' method="get"><button id="viewprofile" onclick = "viewprof()">View Profile</button></form>
         {{!-- </form> --}}
@@ -56,9 +56,11 @@
             {{/each}}
         </form>
 
-         --}}
+--}}
 
-        <a href = "GamePages/Pokemon.html"><img id="games" src="../Images/GAMES PHOTOS/pokemon cover.jpg" alt="Pokemon Cover">{{this.libGames}}</a>
+
+
+        {{!-- <a href = "GamePages/Pokemon.html"><img id="games" src="../Images/GAMES PHOTOS/pokemon cover.jpg" alt="Pokemon Cover">{{this.libGames}}</a> --}}
     </dd>
 
     <!-- Animated Background Boxes -->
