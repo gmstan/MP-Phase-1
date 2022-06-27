@@ -6,10 +6,11 @@ const flash = require('express-flash')
 const session = require('express-session');
 const hbs = require("hbs");
 const Account = require('./database/models/account');
-const Game = require('./database/models/game')
+const Game = require('./database/models/game');
 const fileUpload = require('express-fileupload');
 const path = require('path')
 
+var Game1;
 //const bodyparser = require('body-parser')
 
 acc = ""
@@ -128,6 +129,7 @@ app.get('/delete-profile', (req, res)=>{
        
     })
 })
+
 app.get('/view-profile', (req,res)=>{
     // retrieve info from db
     console.log(acc);
@@ -145,8 +147,6 @@ app.get('/view-profile', (req,res)=>{
             });
         }
     })
-
-   
 })
 
 app.get('/', (req,res) =>{
@@ -278,11 +278,13 @@ app.post('/register-post', async(req, res)=>{
       
 });
 
-app.get('/game-direct', async(req,res)=>{
-    console.log("CLICKED");
-    res.render('game.hbs');//game found})
+app.get('/get-game', async(req,res)=>{
+        Game1 = req.query.word;
 });
 
+app.get('/view-game', (req,res) =>{
+    res.render('game.hbs', {Game1});
+});
 
 app.get('/add',(req,res)=>{
     res.render('add-game.hbs')

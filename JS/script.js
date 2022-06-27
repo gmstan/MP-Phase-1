@@ -72,8 +72,13 @@ function search(){
   window.location.href="../HTML/SearchPages/search.html";
 }
 function getGame(){
-  location.href="http://localhost:3000/game-direct";
+  console.log("CLICK");
+  // $.get("/get-game", {word : game}, function(){
+
+  // });
+  location.href = "http://localhost:3000/view-game";
 }
+
 function searchByGenre(){
   window.location.href="genre.html";
 }
