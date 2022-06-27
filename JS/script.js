@@ -71,21 +71,12 @@ function goHomeFromSearch(){
 function search(){
   window.location.href="../HTML/SearchPages/search.html";
 }
-<<<<<<< Updated upstream
-function getGame(){
-  console.log("CLICK");
-  // $.get("/get-game", {word : game}, function(){
-
-  // });
-  location.href = "http://localhost:3000/view-game";
-=======
 function getGame(game){
   console.log(game)
   $.get('/get-game', {word:game }, function(){
 
   })
   location.href="http://localhost:3000/game-direct";
->>>>>>> Stashed changes
 }
 
 function searchByGenre(){

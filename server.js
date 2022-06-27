@@ -276,11 +276,6 @@ app.post('/register-post', async(req, res)=>{
         }
       
 });
-<<<<<<< Updated upstream
-
-app.get('/get-game', async(req,res)=>{
-        Game1 = req.query.word;
-=======
 app.get('/get-game', (req,res)=>{
     currgame = req.query.word
 })
@@ -309,7 +304,6 @@ app.get('/game-direct', async(req,res)=>{
    
     
     //game found})
->>>>>>> Stashed changes
 });
 
 app.get('/view-game', (req,res) =>{
