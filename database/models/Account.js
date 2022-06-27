@@ -28,7 +28,11 @@ const AccSchema = new mongoose.Schema({
     //     default: []
     // }
 
-    libgames: [{Game}]
+    libgames: [{title: String,
+        image1: String,
+        image2: String,
+        description: String,
+        genre: String,}]
     
     // games : 
 

@@ -13,7 +13,7 @@ const path = require('path')
 //const bodyparser = require('body-parser')
 
 acc = ""
-mongoose.connect('mongodb://localhost/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://0.0.0.0/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
 
 
 app.set('view-engine', 'hbs');
