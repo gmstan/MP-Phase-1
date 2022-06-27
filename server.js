@@ -156,9 +156,13 @@ app.get('/', (req,res) =>{
 app.get('/register', (req, res)=>{
     res.render('registration.hbs')
 })
+
 app.get('/home', (req, res)=>{
-    res.render('home.hbs');
+    Account.findOne({username : acc}, (err, user) => {
+        res.render('home.hbs', {display: user.libgames});
+    })
 })
+
 app.get('/profile-register', (req, res)=>{
     
     res.render('profile-regis.hbs', {
@@ -220,7 +224,7 @@ app.post('/login-post', (req, res)=>{
                         req.session.name = user.username;
                         acc = user.username;
                         console.log("Hello, " + req.body.username);
-                        res.render("home.hbs");
+                        res.redirect("/home");
                     }
                     else{
                         console.log("username or password did not match")
