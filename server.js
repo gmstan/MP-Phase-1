@@ -321,7 +321,6 @@ app.post('/add-game',(req,res)=>{
         //     var image1 =  "Images/GAMES PHOTOS/" + image1.name
         // }
     });
-
         var newgame = {
             title: req.body.title,
             image1: "Images/GAMES PHOTOS/" + image1.name,
