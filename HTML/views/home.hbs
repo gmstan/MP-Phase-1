@@ -37,30 +37,24 @@
         <a href = "GamePages/AC.html"><img id="games" src="../Images/GAMES PHOTOS/ac cover.jpg" alt="AC Cover">{{this.libGames}}</a>
         <a href = "GamePages/FF7.html"><img id="games" src="../Images/GAMES PHOTOS/ff7 cover.jpg" alt="ff7 Cover">{{this.libGames}}</a>
 
-{{!-- 
+
         {{!-- option 1 --}}
         {{!-- image with action --}}
 
-        {{#each games}}
+        {{!-- {{#each games}}
             <img src='../{{this.image}}' img id = 'games' action = "/game-direct" method = "post">
-        {{/each}}
+        {{/each}} --}}
 
 
         {{!-- option 2 --}}
         {{!-- button with image --}}
 
-        <form action = "/game-direct" method = "post">
+        {{!-- <form action = "/game-direct" method = "post">
             {{#each games}}
                 <input type="button" id="gameImg" value="submit">
                 //then make button have image 
             {{/each}}
-        </form>
-
---}}
-
-
-
-        {{!-- <a href = "GamePages/Pokemon.html"><img id="games" src="../Images/GAMES PHOTOS/pokemon cover.jpg" alt="Pokemon Cover">{{this.libGames}}</a> --}}
+        </form> --}}
     </dd>
 
     <!-- Animated Background Boxes -->

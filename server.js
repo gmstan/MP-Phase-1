@@ -307,12 +307,26 @@ app.post('/add-game',(req,res)=>{
         // }
     });
 
-        // Account.findOne({username: acc})
-        // Account.populate("libgames")
-        // res.render('home.hbs');
-
+        var newgame = {
+            title: req.body.title,
+            image1: "Images/GAMES PHOTOS/" + image1.name,
+            image2: "Images/GAMES PHOTOS/" + image2.name,
+            description: req.body.description,
+            genre: req.body.genre,
+        }
         
-        //adds to Game schema,not in account
+        Account.findOneAndUpdate({username: acc},
+            {$push:{libgames: newgame}},
+            function(err,success){
+                if(err){
+                    console.log("error");
+                }
+                else{
+                    console.log("good");
+                    res.render('home.hbs');
+                }
+            }
+            )     
 
         // Game.create({
         //     ...req.body,
