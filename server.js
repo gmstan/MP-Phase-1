@@ -14,7 +14,7 @@ var Game1;
 //const bodyparser = require('body-parser')
 var currgame;
 acc = ""
-mongoose.connect('mongodb://localhost/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://0.0.0.0/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
 
 
 app.set('view-engine', 'hbs');
@@ -298,6 +298,28 @@ app.get('/game-direct', async(req,res)=>{
     }) 
 });
 
+app.post('/delete-game', (req, res)=>{
+    Account.findOne({username:acc}, (err, user)=>{
+        console.log("Deleted")
+        console.log(currgame)
+        if (err){
+            console.log(err)
+        }
+        else{
+            counter = 0
+            for(let i = 0; i < user.libgames.length; i++)
+            {
+                if(user.libgames[i].title == currgame){
+                    counter = i 
+                    break
+                }
+            }
+            user.libgames.splice(counter,1);
+            res.redirect('/home');
+        }
+        })
+})
+
 app.get('/view-game', (req,res) =>{
     res.render('game.hbs', {Game1});
 });
@@ -343,29 +365,5 @@ app.post('/add-game',(req,res)=>{
             )     
 
 });
-
-
-app.post('/delete-game', (req, res)=>{
-    Account.findOne({username:acc}, (err, user)=>{
-        console.log("Deleted")
-        console.log(req.query.title)
-        if (err){
-            console.log(err)
-        }
-        else{
-            counter = 0
-            for(let i = 0; i < user.libgames.length; i++)
-            {
-                if(user.libgames[i].title == req.body.title){
-                    counter = i 
-                    break
-                }
-            }
-            user.libgames.splice(counter,1);
-            res.redirect('/home');
-        }
-        })
-})
-
 
 app.listen(3000)
