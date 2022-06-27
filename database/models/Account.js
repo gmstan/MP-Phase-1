@@ -19,18 +19,15 @@ const AccSchema = new mongoose.Schema({
     birthday: String,
     // games: String,
     balance: String,
-
     // libgames: {
     //     type: Game,
     //     default: []
     // }
-
     libgames: [{title: String,
         image1: String,
         image2: String,
         description: String,
         genre: String,}]
-    
     // games : 
 
 })
