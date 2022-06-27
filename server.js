@@ -278,18 +278,11 @@ app.post('/register-post', async(req, res)=>{
       
 });
 
-
-
-app.post('/game-direct', async(req,res)=>{
-    // try{
-    //     //find one (game name)
-    //     if(found)
-    //         res.render('game.hbs',{//game found})
-    // }
-    // catch{
-    //     res.render('/');
-    // }
+app.get('/game-direct', async(req,res)=>{
+    console.log("CLICKED");
+    //res.render('game.hbs');//game found})
 });
+
 
 app.get('/add',(req,res)=>{
     res.render('add-game.hbs')

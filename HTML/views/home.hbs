@@ -8,6 +8,7 @@
   <link href="../CSS/style.css" rel="stylesheet" type="text/css" />
   <script src="../../JS/script.js"></script>
   <script src="../../JS/querylib.js"></script>
+  <script src="../../JS/index.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
         {{!-- image with action --}}
 
         {{#each display}}
-            <img src="../{{this.image1}}" img id = 'games' action = "/game-direct" method = "get">
+            <img src="../{{this.image1}}" id = 'games'>
         {{/each}}
 
 
@@ -45,8 +46,8 @@
         {{!-- button with image --}}
 
         {{!-- <form action = "/game-direct" method = "post">
-            {{#each games}}
-                <input type="button" id="gameImg" value="submit">
+            {{#each display}}
+                <input type="button" img src ="../{{this.image1}}" id="gameImg" value="submit">
                 //then make button have image 
             {{/each}}
         </form> --}}
