@@ -293,51 +293,34 @@ app.get('/add',(req,res)=>{
 
 app.post('/add-game',(req,res)=>{
 
-    const image = req.files.picture
-    image.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image.name), (err)=>{
-        Account.findOne({username : acc},(err, game)=>{
-            if(err){
-                console.log(err)
-            }
-            else{
-                if(!game){
-                    console.log("no user exists")
-                }
-                else{
-                    
-                    if (image.name){
-                        game.picture =  "Images/GAMES PHOTOS/" + image.name
-                    }
-                    if(req.body.description){
-                        game.description = req.body.description
-                    }
-                    if(req.body.genre){
-                        game.genre = req.body.genre
-                    }
-                    game.save((err, updatedGame)=>{
-                        if (err){
-                            console.log(err)
-                        }
-                        else{
-                            res.redirect('/')
-                        }
-                    })
-                }
-                
-            }
-        });
-       
-      });
+    const image1 = req.files.image1
+    const image2 = req.files.image2
 
+    image2.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image2.name), (err)=>{
+        // if (image2.name){
+        //     var image2 =  "Images/GAMES PHOTOS/" + image2.name
+        // }
+    });
+    image1.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image1.name), (err)=>{
+        // if (image1.name){
+        //     var image1 =  "Images/GAMES PHOTOS/" + image1.name
+        // }
+    });
 
-    // res.findOne(req.body.title,(err,game)=>{
-    //     if(game)
-    //     {
-    //         res.render('game.hbs',game);
-    //     }
-    //     else
-    //         res.render('/');
-    // })
+        // Account.findOne({username: acc})
+        // Account.populate("libgames")
+        // res.render('home.hbs');
+
+        
+        //adds to Game schema,not in account
+
+        // Game.create({
+        //     ...req.body,
+        //     image1:"Images/GAMES PHOTOS/" + image1.name,
+        //     image2:"Images/GAMES PHOTOS/" + image2.name
+        // },(error,post) =>{
+        //     res.render('home.hbs');
+        // });
 
 });
 
