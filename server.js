@@ -9,6 +9,7 @@ const Account = require('./database/models/account');
 const Game = require('./database/models/game')
 const fileUpload = require('express-fileupload');
 const path = require('path')
+
 //const bodyparser = require('body-parser')
 
 acc = ""
@@ -40,6 +41,81 @@ app.get('/log-out', (req, res)=>{
     req.session.user = "";
     req.session.name = "";
     res.render('index.hbs');
+})
+app.get('/edit-details', (req, res)=>{
+    //get details
+    Account.findOne({username:acc}, (err, user)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("edit-prof.hbs",{
+                name: user.username,
+                image: user.picture,
+                desc:user.description,
+                birth: user.birthday
+            });
+        }
+    })
+})
+app.post('/save-edit', async(req, res)=>{
+    console.log(req.body.newname)
+    console.log(req.body.newpass)
+    try{
+        const hash = await bcrypt.hash(req.body.newpass, 10);
+        Account.findOne({username:acc}, (err, origuser)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                if(origuser){
+                    Account.findOne({username:req.body.newname}, (err, user)=>{
+                        if(err){
+            
+                        }
+                        else{
+                            if(!user || origuser.username == req.body.newname){//ensure username is not a duplicate except if it is equal to current username then disregard
+                                origuser.username = req.body.newname;
+                                const image = req.files.picture;
+                                tempname = 'Images/profpics/' + image.name;
+                                if(image.name != origuser.picture){// image not same with current
+                                    origuser.picture = tempname;
+                                    image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
+                                        if(err){
+                                            console.log(err)
+                                        }
+                                    });
+                                }
+                                origuser.description = req.body.description;
+                                origuser.birthday = req.body.birthday;
+                                origuser.pass = hash;
+                                origuser.save((err, updatedUser)=>{
+                                    if (err){
+                                        console.log(err)
+                                    }
+                                    else{
+                                        //res.send(updatedUser)
+                                        res.redirect('/')
+                                    }
+                                })
+                            }
+                            else{
+                                res.redirect('/save-edit');
+                            }
+                        }
+                    })
+                }
+            }
+           
+        })
+            
+    }
+    catch{
+        res.redirect('/save-edit');
+    }
+   
+    
+  
 })
 app.get('/delete-profile', (req, res)=>{
     Account.deleteOne({username:acc}, (err, user)=>{

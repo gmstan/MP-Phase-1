@@ -13,7 +13,7 @@
 <body>
   <div class="border">
   <div class="main">
-    <h2>{{name}} <button onclick= "window.location.href='editProfile.hbs'">Edit Profile</button> </h1>
+    <h2>{{name}} <form action="/edit-details" method="GET"><button>Edit Profile</button></form> </h1>
     <img src="../{{image}}" alt="ProfPic">
 
     <div class="break"></div>
@@ -22,8 +22,7 @@
 
         <h3 id = "birth">Birthday:{{birthday}}</h3>
         <p>Number of Games: {{gameNo}}</p>
-
-        <h3>Account Balance: P </h3><br>   
+ 
     </div>
   </div>
   <center>

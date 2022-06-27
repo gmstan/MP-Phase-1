@@ -32,8 +32,7 @@ function openNav() {
         location.href = "http://localhost:3000/delete-profile";
     }
   }
-  
-
+ 
   function register(){
     window.location.href="../HTML/views/registration.ejs";
   }

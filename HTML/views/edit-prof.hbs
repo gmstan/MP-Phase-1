@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Profile Page</title>
+  <script src="../../JS/script.js"></script>
+  <link rel="stylesheet" href="../../CSS/editprof.css">
+</head>
+
+<body>
+  
+  <div class="border">
+    <div class="main">
+      <form action= "/save-edit"  method="post" enctype ="multipart/form-data">
+      <h3>Username: <input type="text" id="newname"  name="newname" value="{{name}}"></h3>
+       <h3>Password: <input type="password" id="newpass" name="newpass"></h3>
+    <div class ="container">
+        <img id="displaypic" style="width:200px;height:200px"><br>
+         <input type="file" id="picture" name="picture" onchange="loadFile(event)" value="{{image}}"> <br />
+    </div>
+
+      <div class="break"></div>
+
+        <h3>Description</h3>
+          <input type="text" name="description" value="{{desc}}" id="description" size="70" style=" padding:20px 10px; line-height:25px;">
+        
+
+        <h3>Birthday: <input type="text" id="birthday" name="birthday" value="{{birth}}"></h3>
+        <center>  
+          <button style="float:unset" id="save" type="submit">Save Changes</button>
+        </center>
+        </form>
+      </div>
+    </div>
+
+</body>
+</html>
