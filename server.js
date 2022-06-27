@@ -314,8 +314,28 @@ app.post('/delete-game', (req, res)=>{
                     break
                 }
             }
-            user.libgames.splice(counter,1);
-            res.redirect('/home');
+
+            var newgame = {
+                title : user.libgames[counter].title,
+                image1 : user.libgames[counter].image1,
+                image2 : user.libgames[counter].image2,
+                description : user.libgames[counter].description,
+                genre : user.libgames[counter].genre
+            }
+            
+            Account.findOneAndUpdate({username: acc},
+                {$pull:{libgames: newgame}},
+                function(err,success){
+                    if(err){
+                        console.log("error");
+                    }
+                    else{
+                        console.log("good");
+                        res.redirect('/home');
+                    }
+                }
+                ) 
+            //user.libgames.splice(counter,1);
         }
         })
 })
