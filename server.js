@@ -12,7 +12,7 @@ const path = require('path')
 
 var Game1;
 //const bodyparser = require('body-parser')
-
+var currgame;
 acc = ""
 mongoose.connect('mongodb://0.0.0.0/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
 
@@ -164,7 +164,6 @@ app.get('/home', (req, res)=>{
 })
 
 app.get('/profile-register', (req, res)=>{
-    
     res.render('profile-regis.hbs', {
         name: acc,  
     })
@@ -277,9 +276,40 @@ app.post('/register-post', async(req, res)=>{
         }
       
 });
+<<<<<<< Updated upstream
 
 app.get('/get-game', async(req,res)=>{
         Game1 = req.query.word;
+=======
+app.get('/get-game', (req,res)=>{
+    currgame = req.query.word
+})
+app.get('/game-direct', async(req,res)=>{
+    Account.findOne({username: acc}).exec(function(err, user){
+        if(err){
+
+        }
+        else{
+            counter = 0
+            for(let i = 0; i < user.libgames.length; i++){
+                if(user.libgames[i].title == currgame){
+                    counter = i
+                    break
+                }
+            }
+            res.render("game.hbs",{
+                title : user.libgames[counter].title,
+                image: user.libgames[counter].image2,
+                description: user.libgames[counter].description,
+                genre: user.libgames[counter].genre,
+            })
+        }
+    }) 
+       
+   
+    
+    //game found})
+>>>>>>> Stashed changes
 });
 
 app.get('/view-game', (req,res) =>{
