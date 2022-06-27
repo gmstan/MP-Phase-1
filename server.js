@@ -280,7 +280,7 @@ app.post('/register-post', async(req, res)=>{
 
 app.get('/game-direct', async(req,res)=>{
     console.log("CLICKED");
-    //res.render('game.hbs');//game found})
+    res.render('game.hbs');//game found})
 });
 
 

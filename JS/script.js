@@ -48,7 +48,7 @@ function finishRegis(){
   window.location.href="../HTML/index.html";
 }
 function goHomeFromGame(){
-  window.location.href="../home.html";
+  location.href = "http://localhost:3000/home";
 }
 function goHomeFromPfp(){
   $.get("/home", function(){
@@ -71,7 +71,9 @@ function goHomeFromSearch(){
 function search(){
   window.location.href="../HTML/SearchPages/search.html";
 }
-
+function getGame(){
+  location.href="http://localhost:3000/game-direct";
+}
 function searchByGenre(){
   window.location.href="genre.html";
 }
