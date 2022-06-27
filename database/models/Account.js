@@ -17,10 +17,7 @@ const AccSchema = new mongoose.Schema({
     picture: String,
     description: String,
     birthday: String,
-
-
     // games: String,
-
     balance: String,
 
     // libgames: {
