@@ -26,7 +26,12 @@
         <h3>Genre</h3>
         <p>{{genre}}</p>
     </dt>
-    </dd>
   </div>
+  <center>
+    <div style="position:relative; top: -40px">
+      <form action="/home" method="get"><button id="home" onclick="goHomeFromPfp()" style="float:unset" >Home</button></form>
+      <button id="delete" onclick="deleteGame(&quot;{{title}}&quot;)" style="float:unset" alt="{{title}}">Delete Game</button></form> 
+    </div>
+  </center>
 </body>
 </html>

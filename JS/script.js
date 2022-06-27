@@ -32,7 +32,6 @@ function openNav() {
         location.href = "http://localhost:3000/delete-profile";
     }
   }
- 
   function register(){
     window.location.href="../HTML/views/registration.ejs";
   }
@@ -71,12 +70,21 @@ function goHomeFromSearch(){
 function search(){
   window.location.href="../HTML/SearchPages/search.html";
 }
+
 function getGame(game){
   console.log(game)
   $.get('/get-game', {word:game }, function(){
 
   })
   location.href="http://localhost:3000/game-direct";
+}
+
+function deleteGame(game){
+  console.log(game)
+  $.get('/get-game', {word:game }, function(){
+
+  })
+  location.href="http://localhost:3000/delete-game";
 }
 
 function searchByGenre(){

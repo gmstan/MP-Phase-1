@@ -14,7 +14,7 @@ var Game1;
 //const bodyparser = require('body-parser')
 var currgame;
 acc = ""
-mongoose.connect('mongodb://0.0.0.0/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
 
 
 app.set('view-engine', 'hbs');
@@ -59,6 +59,7 @@ app.get('/edit-details', (req, res)=>{
         }
     })
 })
+
 app.post('/save-edit', async(req, res)=>{
     console.log(req.body.newname)
     console.log(req.body.newpass)
@@ -114,10 +115,8 @@ app.post('/save-edit', async(req, res)=>{
     catch{
         res.redirect('/save-edit');
     }
-   
-    
-  
 })
+
 app.get('/delete-profile', (req, res)=>{
     Account.deleteOne({username:acc}, (err, user)=>{
         if (err){
@@ -201,13 +200,9 @@ app.post('/register-details', (req,res)=>{
                         }
                     })
                 }
-                
             }
         });
-       
       });
-
-
 })
 
 app.post('/login-post', (req, res)=>{
@@ -243,20 +238,19 @@ app.post('/register-post', async(req, res)=>{
         try{
              const hashedPassword = await bcrypt.hash(req.body.pass, 10)
            
-
             //check if username exists
-            // Account.findOne({username : req.body.user},(err,result)=>{
-            //     if(!result)
-            //     {
-            //         // put create here
+            Account.findOne({username : req.body.user},(err,result)=>{
+                if(!result)
+                {
+                    // put create here
 
-            //     }
-
-            //     else
-            //         console.log.appl("Account with Username already exists");
-
-            // })
-
+                }
+                else
+                {
+                    console.log.appl("Account with Username already exists");
+                    res.redirect('/register');
+                }
+            })
 
             // code here for adding to the database
             Account.create({
@@ -276,9 +270,11 @@ app.post('/register-post', async(req, res)=>{
         }
       
 });
+
 app.get('/get-game', (req,res)=>{
     currgame = req.query.word
 })
+
 app.get('/game-direct', async(req,res)=>{
     Account.findOne({username: acc}).exec(function(err, user){
         if(err){
@@ -300,10 +296,6 @@ app.get('/game-direct', async(req,res)=>{
             })
         }
     }) 
-       
-   
-    
-    //game found})
 });
 
 app.get('/view-game', (req,res) =>{
@@ -346,19 +338,35 @@ app.post('/add-game',(req,res)=>{
                 }
                 else{
                     console.log("good");
-                    res.render('home.hbs');
+                    res.redirect('/home');
                 }
             }
             )     
 
-        // Game.create({
-        //     ...req.body,
-        //     image1:"Images/GAMES PHOTOS/" + image1.name,
-        //     image2:"Images/GAMES PHOTOS/" + image2.name
-        // },(error,post) =>{
-        //     res.render('home.hbs');
-        // });
-
 });
+
+
+app.post('/delete-game', (req, res)=>{
+    Account.findOne({username:acc}, (err, user)=>{
+        console.log("Deleted")
+        console.log(req.query.title)
+        if (err){
+            console.log(err)
+        }
+        else{
+            counter = 0
+            for(let i = 0; i < user.libgames.length; i++)
+            {
+                if(user.libgames[i].title == req.body.title){
+                    counter = i 
+                    break
+                }
+            }
+            user.libgames.splice(counter,1);
+            res.redirect('/home');
+        }
+        })
+})
+
 
 app.listen(3000)
