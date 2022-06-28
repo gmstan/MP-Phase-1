@@ -5,36 +5,36 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
   }
   
-  /* Set the width of the side navigation to 0 */
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
-  function login(){
-    //still to be added here if user entered correct password and username
-    window.location.href="../HTML/home.html";
-  }
-  function loginPage(){
-    //still to be added here if user entered correct password and username
-    window.location.href="../HTML/views/index.ejs";
-  }
-  function logout(){
-    $.get('/log-out',function(result){
+function login(){
+  //still to be added here if user entered correct password and username
+  window.location.href="../HTML/home.html";
+}
+function loginPage(){
+  //still to be added here if user entered correct password and username
+  window.location.href="../HTML/views/index.ejs";
+}
+function logout(){
+  $.get('/log-out',function(result){
 
-    });
+  });
+}
+function checker(event){
+  var result = confirm('Are you sure? This cannot be undone');
+  if(result == false){
+    event.preventDefault();
   }
-  function checker(event){
-    var result = confirm('Are you sure? This cannot be undone');
-    if(result == false){
-      event.preventDefault();
-    }
-    else{
-        location.href = "http://localhost:3000/delete-profile";
-    }
+  else{
+      location.href = "http://localhost:3000/delete-profile";
   }
-  function register(){
-    window.location.href="../HTML/views/registration.ejs";
-  }
+}
+function register(){
+  window.location.href="../HTML/views/registration.ejs";
+}
 function openProfile(){
   window.location.href="../HTML/pfps/tempo.html";
 }
@@ -77,14 +77,6 @@ function getGame(game){
 
   })
   location.href="http://localhost:3000/game-direct";
-}
-
-function deleteGame(game){
-  console.log(game)
-  $.get('/get-game', {word:game }, function(){
-
-  })
-  location.href="http://localhost:3000/delete-game";
 }
 
 function searchByGenre(){

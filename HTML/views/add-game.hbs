@@ -14,7 +14,7 @@
   <div class="border">
     <div class="main">
       <form action= "/add-game"  method="post" enctype ="multipart/form-data">
-       <h3>Title: <input type="text" name="title" id="title"></h3><br>
+       <h3>Title: <input type="text" name="title" id="title" required></h3><br>
     <div class ="container">
       <h3>Image on Homescreen:</h3>
         <img id="displaypic" style="width:200px;height:200px"><br>
@@ -28,10 +28,9 @@
       <div class="break"></div>
 
         <h3>Description</h3>
-          <input type="text" name="description" id="description" size="70" style=" padding:20px 10px; line-height:25px;">
-        
+          <input type="text" name="description" id="description" size="70" style=" padding:20px 10px; line-height:25px;" required>
 
-        <h3>Genre: <input type="text" id="genre" name="genre"></h3>
+        <h3>Genre: <input type="text" id="genre" name="genre" required></h3>
 
         <center>  
           <button style="float:unset" id="save" type="submit">Add Game</button>

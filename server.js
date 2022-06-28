@@ -6,16 +6,13 @@ const flash = require('express-flash')
 const session = require('express-session');
 const hbs = require("hbs");
 const Account = require('./database/models/account');
-const Game = require('./database/models/game');
 const fileUpload = require('express-fileupload');
-const path = require('path')
-
-var Game1;
+const path = require('path');
+const fs = require('fs');
 //const bodyparser = require('body-parser')
 var currgame;
 acc = ""
 mongoose.connect('mongodb://0.0.0.0/AccountDB',{useNewURLParser: true, useUnifiedTopology: true});
-
 
 app.set('view-engine', 'hbs');
 app.set('views','./HTML/views');
@@ -27,7 +24,6 @@ app.use(express.json());
 
 // Flash
 app.use(flash());
-
 
 app.use(session({
     secret: 'secretcode',
@@ -43,6 +39,7 @@ app.get('/log-out', (req, res)=>{
     req.session.name = "";
     res.render('index.hbs');
 })
+
 app.get('/edit-details', (req, res)=>{
     //get details
     Account.findOne({username:acc}, (err, user)=>{
@@ -63,7 +60,6 @@ app.get('/edit-details', (req, res)=>{
 app.post('/save-edit', async(req, res)=>{
     console.log(req.body.newname)
     console.log(req.body.newpass)
-   
     try{
         const hash = await bcrypt.hash(req.body.newpass, 10);
         Account.findOne({username:acc}, (err, origuser)=>{
@@ -95,7 +91,15 @@ app.post('/save-edit', async(req, res)=>{
                                     tempname = 'Images/profpics/default.jpg'
                                     origuser.picture = tempname;
                                 }
-                                
+                                if (!(user.picture == "Images/profpics/default.jpg"))
+                                {
+                                    fs.unlink(user.picture, (err) => {
+                                        if (err){
+                                            console.log(err);
+                                        }
+                                        console.log("file deleted");
+                                    })
+                                }
                                 origuser.description = req.body.description;
                                 origuser.birthday = req.body.birthday;
                                 origuser.pass = hash;
@@ -116,9 +120,7 @@ app.post('/save-edit', async(req, res)=>{
                     })
                 }
             }
-           
         })
-            
     }
     catch{
         res.redirect('/save-edit');
@@ -126,6 +128,21 @@ app.post('/save-edit', async(req, res)=>{
 })
 
 app.get('/delete-profile', (req, res)=>{
+    Account.findOne({username:acc}, (err, user) => {
+        if(fs.existsSync(user.picture))
+        {
+            if (!(user.picture == "Images/profpics/default.jpg"))
+            {
+                fs.unlink(user.picture, (err) => {
+                    if (err){
+                        console.log(err);
+                    }
+                    console.log("file deleted");
+                })
+            }
+        }
+    })
+
     Account.deleteOne({username:acc}, (err, user)=>{
         if (err){
             console.log(err)
@@ -133,7 +150,6 @@ app.get('/delete-profile', (req, res)=>{
         else{
             res.redirect('/');
         }
-       
     })
 })
 
@@ -223,9 +239,7 @@ app.post('/register-details', (req,res)=>{
                     console.log("no user exists")
                 }
                 else{
-                    
-                     user.picture =  "Images/profpics/default.jpg"
-                    
+                    user.picture =  "Images/profpics/default.jpg"
                     if(req.body.description){
                         user.description = req.body.description
                     }
@@ -245,7 +259,6 @@ app.post('/register-details', (req,res)=>{
             }
         });
     }
-
 })
 
 app.post('/login-post', (req, res)=>{
@@ -267,26 +280,33 @@ app.post('/login-post', (req, res)=>{
                         console.log("username or password did not match")
                     }
                })
-                
            }
            else{
-               res.redirect('/')
+                res.redirect('/')
            }
        }
    })
  });
 
 app.post('/register-post', async(req, res)=>{
-
         try{
-             const hashedPassword = await bcrypt.hash(req.body.pass, 10)
+            const hashedPassword = await bcrypt.hash(req.body.pass, 10)
            
             //check if username exists
             Account.findOne({username : req.body.user},(err,result)=>{
                 if(!result)
                 {
                     // put create here
-
+                    Account.create({
+                        username: req.body.username,
+                        pass: hashedPassword,
+                        games: 0,
+                    },
+                        (error, account)=>{
+                            //console.log(error, account);
+                    })
+                    acc = req.body.username
+                    res.redirect('/profile-register')
                 }
                 else
                 {
@@ -294,19 +314,7 @@ app.post('/register-post', async(req, res)=>{
                     res.redirect('/register');
                 }
             })
-
             // code here for adding to the database
-            Account.create({
-                    username: req.body.username,
-                    pass: hashedPassword,
-                    games: 0,
-                },
-                    (error, account)=>{
-                        //console.log(error, account);
-                        
-            })
-            acc = req.body.username
-            res.redirect('/profile-register')    
         }
         catch{
             res.redirect('/register');
@@ -341,6 +349,66 @@ app.get('/game-direct', async(req,res)=>{
     }) 
 });
 
+app.get('/add',(req,res)=>{
+    res.render('add-game.hbs')
+});
+
+app.post('/add-game',(req,res)=>{
+    
+    Account.findOne({username:acc}, (err,user) => {
+        var lol;
+        for (let i = 0; i < user.libgames.length;i++)
+        {
+            if (user.libgames[i].title == req.body.title)
+            {
+                console.log("Game exists");
+                lol = 0;
+                break;
+            }
+            else    
+                lol = 1;
+        }
+
+        console.log(lol);
+
+        if (lol==1)
+        {
+            const image1 = req.files.image1
+            const image2 = req.files.image2
+        
+            image2.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image2.name), (err)=>{
+            });
+            image1.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image1.name), (err)=>{
+            });
+        
+            var newgame = {
+                title: req.body.title,
+                image1: "Images/GAMES PHOTOS/" + image1.name,
+                image2: "Images/GAMES PHOTOS/" + image2.name,
+                description: req.body.description,
+                genre: req.body.genre,
+            }
+        
+            Account.findOneAndUpdate({username: acc},
+                {$push:{libgames: newgame}},
+                function(err,success){
+                    if(err){
+                        console.log("error");
+                    }
+                    else{
+                        console.log("good");
+                        res.redirect('/home');
+                    }
+                }
+            )     
+        }
+        res.redirect('/home');
+    })
+
+    
+    
+});
+
 app.post('/delete-game', (req, res)=>{
     Account.findOne({username:acc}, (err, user)=>{
         console.log("Deleted")
@@ -366,6 +434,26 @@ app.post('/delete-game', (req, res)=>{
                 genre : user.libgames[counter].genre
             }
             
+            if(fs.existsSync(user.libgames[counter].image1))
+            {
+                fs.unlink(user.libgames[counter].image1, (err) => {
+                    if (err){
+                        console.log(err);
+                    }
+                    console.log("file deleted");
+                })
+            }
+
+            if(fs.existsSync(user.libgames[counter].image2))
+            {
+                fs.unlink(user.libgames[counter].image2, (err) => {
+                    if (err){
+                        console.log(err);
+                    }
+                    console.log("file deleted");
+                })
+            }
+
             Account.findOneAndUpdate({username: acc},
                 {$pull:{libgames: newgame}},
                 function(err,success){
@@ -378,55 +466,8 @@ app.post('/delete-game', (req, res)=>{
                     }
                 }
                 ) 
-            //user.libgames.splice(counter,1);
         }
         })
 })
-
-app.get('/view-game', (req,res) =>{
-    res.render('game.hbs', {Game1});
-});
-
-app.get('/add',(req,res)=>{
-    res.render('add-game.hbs')
-});
-
-app.post('/add-game',(req,res)=>{
-
-    const image1 = req.files.image1
-    const image2 = req.files.image2
-
-    image2.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image2.name), (err)=>{
-        // if (image2.name){
-        //     var image2 =  "Images/GAMES PHOTOS/" + image2.name
-        // }
-    });
-    image1.mv(path.resolve(__dirname,'Images/GAMES PHOTOS',image1.name), (err)=>{
-        // if (image1.name){
-        //     var image1 =  "Images/GAMES PHOTOS/" + image1.name
-        // }
-    });
-        var newgame = {
-            title: req.body.title,
-            image1: "Images/GAMES PHOTOS/" + image1.name,
-            image2: "Images/GAMES PHOTOS/" + image2.name,
-            description: req.body.description,
-            genre: req.body.genre,
-        }
-        
-        Account.findOneAndUpdate({username: acc},
-            {$push:{libgames: newgame}},
-            function(err,success){
-                if(err){
-                    console.log("error");
-                }
-                else{
-                    console.log("good");
-                    res.redirect('/home');
-                }
-            }
-            )     
-
-});
 
 app.listen(3000)

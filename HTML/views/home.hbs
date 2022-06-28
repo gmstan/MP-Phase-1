@@ -13,10 +13,7 @@
 
 <body>
 
-    <!-- Use any element to open the sidenav -->
     <div id = "Topbuttons">
-        {{!-- <a onclick="openNav()" class="libraryButton" href="#">My Game Library</a> --}}
-
 
         {{!-- <form method="put">--}}
             <form action="/add" method="put"><button id="add" onclick = "addgame()">Add Game</button></form>
@@ -24,33 +21,16 @@
            <form action='/view-profile' method="get"><button id="viewprofile" onclick = "viewprof()">View Profile</button></form>
         {{!-- </form> --}}
        
-        
         <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
         <div id="main">
             <h1 style="text-align: center;">My Library</h1>
         </div>
     </div>
     <dd id="display">
-        {{!-- <a href = "GamePages/Pokemon.html"><img id="games" src="../Images/GAMES PHOTOS/pokemon cover.jpg" alt="Pokemon Cover">{{this.libGames}}</a>--}}
-
-
-        {{!-- option 1 --}}
-        {{!-- image with action --}}
-
         {{#each display}}
             <input type="image" src="../{{this.image1}}" id = 'games' onclick="getGame(&quot;{{this.title}}&quot;)" alt="{{this.title}}">
         {{/each}}
 
-
-        {{!-- option 2 --}}
-        {{!-- button with image --}}
-
-        {{!-- <form action = "/game-direct" method = "post">
-            {{#each display}}
-                <input type="button" img src ="../{{this.image1}}" id="gameImg" value="submit">
-                //then make button have image 
-            {{/each}}
-        </form> --}}
     </dd>
 
     <!-- Animated Background Boxes -->
