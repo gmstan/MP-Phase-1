@@ -102,3 +102,7 @@ function loadFile(event){
   var output = document.getElementById('displaypic');
   output.src = URL.createObjectURL(event.target.files[0])
 }
+function loadFile2(event){
+  var output = document.getElementById('coverpic');
+  output.src = URL.createObjectURL(event.target.files[0])
+}
