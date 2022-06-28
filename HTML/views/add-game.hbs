@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width">
   <title>Profile Page</title>
   <script src="../../JS/script.js"></script>
+  <script src="../../JS/querylib.js"></script>
+  <script src="../../JS/checkgame.js"></script>
   <link rel="stylesheet" href="../../CSS/editprof.css">
 </head>
 
@@ -14,6 +16,7 @@
   <div class="border">
     <div class="main">
       <form action= "/add-game"  method="post" enctype ="multipart/form-data">
+      <p id="error"></p>
        <h3>Title: <input type="text" name="title" id="title" required></h3><br>
     <div class ="container">
       <h3>Image on Homescreen:</h3>

@@ -6,6 +6,7 @@
   </title>
   <script src="../../JS/script.js"></script>
   <script src="../JS/querylib.js"></script>
+  <script src="../../JS/checker.js"></script>
   <link rel="stylesheet" href="../CSS/loginpage.css">
   
 </head>
@@ -18,6 +19,7 @@
       <div id ="forms">
         <h1 class="headerlogin">Register to Game Manager</h1>
         <form action ="/register-post" method = "POST">
+        <p id="error"></p>
             <label for="username">Username: </label>
             <input type="text" id="username" name ="username" required>
             <br><br>

@@ -9,6 +9,7 @@ const Account = require('./database/models/account');
 const fileUpload = require('express-fileupload');
 const path = require('path');
 const fs = require('fs');
+const alert = require('alert')
 //const bodyparser = require('body-parser')
 var currgame;
 acc = ""
@@ -287,13 +288,22 @@ app.post('/login-post', (req, res)=>{
        }
    })
  });
-
+app.get('/checkuser', (req, res)=>{
+    Account.findOne({username: req.query.name}, function(err, result){
+        res.send(result)
+    })
+})
+app.get('/checkgame', (req, res)=>{
+    Account.findOne({username:acc}, function(err, user){
+       res.send(user)
+    })
+})
 app.post('/register-post', async(req, res)=>{
         try{
             const hashedPassword = await bcrypt.hash(req.body.pass, 10)
            
             //check if username exists
-            Account.findOne({username : req.body.user},(err,result)=>{
+            Account.findOne({username : req.body.username},(err,result)=>{
                 if(!result)
                 {
                     // put create here
@@ -310,7 +320,6 @@ app.post('/register-post', async(req, res)=>{
                 }
                 else
                 {
-                    console.log.appl("Account with Username already exists");
                     res.redirect('/register');
                 }
             })
@@ -356,23 +365,9 @@ app.get('/add',(req,res)=>{
 app.post('/add-game',(req,res)=>{
     
     Account.findOne({username:acc}, (err,user) => {
-        var lol;
-        for (let i = 0; i < user.libgames.length;i++)
-        {
-            if (user.libgames[i].title == req.body.title)
-            {
-                console.log("Game exists");
-                lol = 0;
-                break;
-            }
-            else    
-                lol = 1;
-        }
+        
 
-        console.log(lol);
-
-        if (lol==1)
-        {
+        
             const image1 = req.files.image1
             const image2 = req.files.image2
         
@@ -397,11 +392,10 @@ app.post('/add-game',(req,res)=>{
                     }
                     else{
                         console.log("good");
-                        res.redirect('/home');
                     }
                 }
             )     
-        }
+        
         res.redirect('/home');
     })
 
