@@ -15,7 +15,7 @@
     <div class="main">
       <form action= "/save-edit"  method="post" enctype ="multipart/form-data">
       <h3>Username: <input type="text" id="newname"  name="newname" value="{{name}}"></h3>
-       <h3>Password: <input type="password" id="newpass" name="newpass"></h3>
+       <h3>Password: <input type="password" id="newpass" name="newpass" required></h3>
     <div class ="container">
         <img id="displaypic" style="width:200px;height:200px"><br>
          <input type="file" id="picture" name="picture" onchange="loadFile(event)" value="{{image}}"> <br />

@@ -63,6 +63,7 @@ app.get('/edit-details', (req, res)=>{
 app.post('/save-edit', async(req, res)=>{
     console.log(req.body.newname)
     console.log(req.body.newpass)
+   
     try{
         const hash = await bcrypt.hash(req.body.newpass, 10);
         Account.findOne({username:acc}, (err, origuser)=>{
@@ -78,16 +79,23 @@ app.post('/save-edit', async(req, res)=>{
                         else{
                             if(!user || origuser.username == req.body.newname){//ensure username is not a duplicate except if it is equal to current username then disregard
                                 origuser.username = req.body.newname;
-                                const image = req.files.picture;
-                                tempname = 'Images/profpics/' + image.name;
-                                if(image.name != origuser.picture){// image not same with current
-                                    origuser.picture = tempname;
-                                    image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
-                                        if(err){
-                                            console.log(err)
-                                        }
-                                    });
+                                try{
+                                    const image = req.files.picture;
+                                    tempname = 'Images/profpics/' + image.name;
+                                    if(image.name != origuser.picture){// image not same with current
+                                        origuser.picture = tempname;
+                                        image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
+                                            if(err){
+                                                console.log(err)
+                                            }
+                                        });
+                                    }
                                 }
+                                catch{
+                                    tempname = 'Images/profpics/default.jpg'
+                                    origuser.picture = tempname;
+                                }
+                                
                                 origuser.description = req.body.description;
                                 origuser.birthday = req.body.birthday;
                                 origuser.pass = hash;
@@ -142,7 +150,7 @@ app.get('/view-profile', (req,res)=>{
                 image: user.picture,
                 description: user.description,
                 birthday: user.birthday,
-                gameNo: user.games,
+                gameNo: user.libgames.length,
             });
         }
     })
@@ -169,8 +177,43 @@ app.get('/profile-register', (req, res)=>{
 })
 
 app.post('/register-details', (req,res)=>{
-    const image = req.files.picture
-    image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
+    try{
+        const image = req.files.picture
+        image.mv(path.resolve(__dirname,'Images/profpics',image.name), (err)=>{
+            Account.findOne({username : acc},(err, user)=>{
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    if(!user){
+                        console.log("no user exists")
+                    }
+                    else{
+                        
+                        if (image.name){
+                            user.picture =  "Images/profpics/" + image.name
+                        }
+                        if(req.body.description){
+                            user.description = req.body.description
+                        }
+                        if(req.body.birthday){
+                            user.birthday = req.body.birthday
+                        }
+                        user.save((err, updatedUser)=>{
+                            if (err){
+                                console.log(err)
+                            }
+                            else{
+                                //res.send(updatedUser)
+                                res.redirect('/')
+                            }
+                        })
+                    }
+                }
+            });
+        });
+    }
+    catch{
         Account.findOne({username : acc},(err, user)=>{
             if(err){
                 console.log(err)
@@ -181,9 +224,8 @@ app.post('/register-details', (req,res)=>{
                 }
                 else{
                     
-                    if (image.name){
-                        user.picture =  "Images/profpics/" + image.name
-                    }
+                     user.picture =  "Images/profpics/default.jpg"
+                    
                     if(req.body.description){
                         user.description = req.body.description
                     }
@@ -202,7 +244,8 @@ app.post('/register-details', (req,res)=>{
                 }
             }
         });
-      });
+    }
+
 })
 
 app.post('/login-post', (req, res)=>{
@@ -227,7 +270,7 @@ app.post('/login-post', (req, res)=>{
                 
            }
            else{
-               console.log("Username or password did not match")
+               res.redirect('/')
            }
        }
    })
