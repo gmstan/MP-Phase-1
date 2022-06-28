@@ -8,6 +8,8 @@ $(document).ready(function(){
             
             for(let counter = 0; counter < result.libgames.length; counter++){
                 if (result.libgames[counter].title == title){
+                    // result.libgames[counter].title == newgame.title || result.libgames[counter].image1 == newgame.image1 || result.libgames[counter].image2 == newgame.image2
+                    // for the image names
                     checker = true
                     break
                 }

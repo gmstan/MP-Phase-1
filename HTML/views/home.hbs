@@ -11,17 +11,16 @@
   <script src="../../JS/index.js"></script>
 </head>
 
-<body>
-
+<body>  
     <div id = "Topbuttons">
 
-        {{!-- <form method="put">--}}
             <form action="/add" method="put"><button id="add" onclick = "addgame()">Add Game</button></form>
             <form action="/log-out" method="get"><button id="logout" onclick = "logout()">Log out</button></form>
            <form action='/view-profile' method="get"><button id="viewprofile" onclick = "viewprof()">View Profile</button></form>
-        {{!-- </form> --}}
-       
-        <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+            {{!-- does not work --}}
+           <form action='/search' method="get"><button id="search" onclick="search()"> Search Game </button> </a>
+
         <div id="main">
             <h1 style="text-align: center;">My Library</h1>
         </div>

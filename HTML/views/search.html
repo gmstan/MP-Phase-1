@@ -12,9 +12,6 @@
 <body>
     <div id = "Topbuttons">
         <button id="home" style="float: left" onclick="goHomeFromSearch()">Home</button>
-        <button id="unfiltered" onclick="searchByName()">Search by Name</button>
-        <button id="genre" onclick="searchByGenre()">Search by Genre</button>
-        <button id="rating" onclick="searchByRating()">Search by Rating</button>
         <br><br><br><br>
         <center>
         <div id="main">
@@ -26,7 +23,7 @@
     <dd>
         <center>
             <div class="searchbar">
-                <form style="font-weight:bold; font-size: 20px; ">Game: <input type="text" placeholder="Search a Game" name="searchvalue"></form>
+                <form style="font-weight:bold; font-size: 20px;" action= "/search" method="get">Game: <input type="text" placeholder="Search a Game" name="searchvalue"></form>
             </div>
         </center>
     </dd>

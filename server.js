@@ -403,6 +403,29 @@ app.post('/add-game',(req,res)=>{
     
 });
 
+app.get('/search',(req,res)=>{
+    Account.findOne({username: acc}).exec(function(err, user){
+        if(err){
+    
+            }
+            else{
+                counter = 0
+                for(let i = 0; i < user.libgames.length; i++){
+                    if(user.libgames[i].title == req.query){
+                        counter = i
+                        break
+                    }
+                }
+                res.render("game.hbs",{
+                    title : user.libgames[counter].title,
+                    image: user.libgames[counter].image2,
+                    description: user.libgames[counter].description,
+                    genre: user.libgames[counter].genre,
+                })
+            }
+        }) 
+});
+
 app.post('/delete-game', (req, res)=>{
     Account.findOne({username:acc}, (err, user)=>{
         console.log("Deleted")

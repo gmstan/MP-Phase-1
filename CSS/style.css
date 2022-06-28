@@ -80,53 +80,10 @@ body{
     }
 /* } *//* Divinector. (2019, April 5). Animated Background with Pure CSS and Html | No Javascript no Jquery [Video]. Youtube. https://www.youtube.com/watch?v=5RoXCs54CN8 */
 
-/* { */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: rgb(17, 22, 39); /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  #navtitle{
-    margin: 0 0 15px 15px;
-    color: rgb(237, 239, 247)
-  }
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 8px 8px 8px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    color: darkgray;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
     transition: margin-left .5s;
     padding: 0px;
   }
-/* } *//* W3Schools. (n.d.). How to - side navigation. How To Create a Side Navigation Menu. Retrieved from https://www.w3schools.com/howto/howto_js_sidenav.asp  */
 
   #viewprofile {
     background-color: rgb(10, 118, 164);
@@ -227,10 +184,12 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 20px 10px 0 0;
+    border: 2px solid black;
+    margin: 20px 0px 0 0;
     cursor: pointer;
     float: right;
     border-radius: 16px;
+    position:relative;
   }
 
   #search:hover{
