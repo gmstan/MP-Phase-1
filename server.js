@@ -9,7 +9,7 @@ const Account = require('./database/models/account');
 const fileUpload = require('express-fileupload');
 const path = require('path');
 const fs = require('fs');
-const alert = require('alert')
+
 //const bodyparser = require('body-parser')
 var currgame;
 acc = ""
