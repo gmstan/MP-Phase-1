@@ -16,13 +16,15 @@
   <div class="border">
     <div class="main">
       <form action= "/add-game"  method="post" enctype ="multipart/form-data">
-      <p id="error"></p>
+      <p id="error" class="code"></p>
        <h3>Title: <input type="text" name="title" id="title" required></h3><br>
     <div class ="container">
       <h3>Image on Homescreen:</h3>
+      <p id="error1" name="error1" class="code"></p>
         <img id="displaypic" style="width:200px;height:200px"><br>
          <input type="file" id="image1" name="image1" onchange="loadFile(event)" required> <br />
         <h3>Main Image on Game page:</h3>
+        <p id="error2" name="error2" class="code"></p>
         <img id="coverpic" style="width:200px;height:200px"><br>
          <input type="file" id="image2" name="image2" onchange="loadFile2(event)" required> <br />
 

@@ -98,3 +98,6 @@ h2{
     color:yellow;
     cursor: pointer;
   }
+  .code{
+    color:red;
+  }
