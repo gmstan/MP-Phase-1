@@ -1,30 +1,37 @@
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  
-  /* Set the width of the side navigation to 0 */
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
 
-  function login(){
-    //still to be added here if user entered correct password and username
-    window.location.href="home.html";
+function checker(event){
+  var result = confirm('Are you sure? This cannot be undone');
+  if(result == false){
+    event.preventDefault();
   }
-  function logout(){
-    //still to be added here if user entered correct password and username
-    window.location.href="index.html";
-    
+  else{
+      location.href = "http://localhost:3000/delete-profile";
   }
-
-  function register(){
-    window.location.href="register.html";
-  }
-function openProfile(){
-  window.location.href="pfp.html";
 }
 
-function editProfile(){
-  window.location.href="editprofile.html";
+function goHomeFromPfp(){
+    $.get("/home", function(){
+  });
+}
+function logout(){
+    $.get("/log-out", function(){
+  });
+}
+function viewprof(){
+    $.get("/view-profile", function(){
+  });
+}
+
+function getGame(game){
+  $.get('/get-game', {word:game }, function(){})
+  location.href="http://localhost:3000/game-direct";
+}
+
+function loadFile(event){
+  var output = document.getElementById('displaypic');
+  output.src = URL.createObjectURL(event.target.files[0])
+}
+function loadFile2(event){
+  var output = document.getElementById('coverpic');
+  output.src = URL.createObjectURL(event.target.files[0])
 }

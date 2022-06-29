@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Game Library Manager</title>
+  <link rel="stylesheet" type="text/css" href = "../../CSS/gamepage.css">
+  <script src="../../JS/script.js"></script>
+</head>
+
+<body>
+    <form action="/home" method="get"><button style="left:0px; float:unset" id="home" onclick="goHomeFromPfp()">Home</button></form>
+  <div class="main">
+    <h1 class="title">{{title}}</h1>
+
+    <img src="{{this.image}}" >
+
+    <div class="break"></div>
+
+    <dt class="info">
+        <h2>Description</h2>
+
+        <p>{{description}}</p>
+
+        <h3>Genre</h3>
+        <p>{{genre}}</p>
+    </dt>
+  </div>
+  <center>
+    <div style="position:relative; top: -40px">
+      <form action="/delete-game" method="post"><button id="delete" style="float:unset; background-color: rgb(139, 46, 46)">Delete Game</button></form>
+    </div>
+  </center>
+</body>
+</html>

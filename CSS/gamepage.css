@@ -1,0 +1,97 @@
+*{
+    font-family: sans-serif;
+}
+
+h1{
+    margin: 0 0 6px 0;
+    width: 450px;
+    position: relative;
+}
+
+body{
+    background: url("../Images/prof bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+div.main{
+    margin: 20px auto 60px;
+    padding: 20px;
+    width:865px;
+    height:1000px;
+    background: linear-gradient(#9eb0db,#8374b9);
+    border: 7px solid rgb(28, 48, 66);
+}
+
+button{
+    background-color: #1ba099;
+    border: 2px solid rgb(31, 22, 22);
+    color: black;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    border-radius: 16px;
+}
+
+#reviewbuttons button{
+    font-size:12px;
+    padding:5px;
+}
+
+#reviews{
+    overflow:auto;
+    height:250px;
+    width:250px;
+    padding:10px;
+    margin:15px 0 0 0;
+    border-radius:10px;
+    border: 2px solid rgb(18, 76, 59);
+}
+
+#reviews p{
+    font-size: 15px;
+}
+
+.border{
+    margin: 40px auto 60px;
+    width:830px;
+    outline-color: black;
+    outline-style: double;
+    outline-offset: 0px;
+    background-color: rgb(120, 156, 189);
+}
+
+button:hover{
+    color:yellow;
+    cursor: pointer;
+    background-color: #1cb3ab;;
+}
+
+img{
+    height:430px;
+    width: 850px;
+    float:left;
+    margin:30px 0 20px 0;
+    border: 7px outset rgba(151, 139, 190, 0.377);
+}
+
+dt.info{
+    padding: 0 26px 0 0;
+    width: 500px;
+    float: left;
+    height: 250px;
+    margin: 0 40px 0 0;
+}
+
+dd.rating{
+    font-size: 20px;
+    margin: 0 0 6px 0;
+    position: relative;
+}
+
+h4{
+    font-size: 20px;
+}

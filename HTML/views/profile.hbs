@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Profile Page</title>
+  <script src="../../JS/script.js"></script>
+  <script src="../../JS/querylib.js"></script>
+  <link rel="stylesheet" href="../../CSS/profile.css">
+</head>
+
+<body>
+  <div class="border">
+  <div class="main">
+    <h3 style = "top: 15px; position: relative">{{name}} <form action="/edit-details" method="GET"><button id="edit">Edit Profile</button></form> </h3>
+    <img src="../{{image}}" alt="ProfPic">
+
+    <div class="break"></div>
+        <h3>Description</h3>
+        <p id ="desc">{{description}}</p>
+
+        <h3 id = "birth">Birthday:{{birthday}}</h3>
+        <p>Number of Games: {{gameNo}}</p>
+ 
+    </div>
+  </div>
+  <center>
+    <div style="position:relative; top: -40px">
+      <form action="/home" method="get"><button id="home" onclick="goHomeFromPfp()" style="float:unset" >Home</button></form>
+      <button id="delete" onclick="checker()" style="float:unset" >Delete Profile</button>
+    </div>
+  </center>
+</body>
+</html>

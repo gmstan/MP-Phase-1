@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Game Library Manager</title>
+  <link href="../../CSS/search.css" rel="stylesheet" type="text/css" />
+  <script src="../../JS/script.js"></script>
+</head>
+
+<body>
+    <div id = "Topbuttons">
+        <form action="/home" method="get"><button id="home" style="float: left" onclick="goHomeFromSearch()">Home</button></form>
+        <br><br><br><br>
+        <center>
+        <div id="main">
+            <h1>Search a Game</h1>
+        </div>
+        </center>
+        
+    </div>
+    <dd>
+        <center>
+            <div class="searchbar">
+                <form style="font-weight:bold; font-size: 20px;" action= "/search" method="get">Game: <input type="text" placeholder="Search a Game" name="searchvalue"><button id="enter" type="submit">Search</button></form>
+                
+            </div>
+            <br>
+            <p id="error">{{msg}}</p>
+        </center>
+    </dd>
+    
+     <!-- Animated Background Boxes -->
+    <div class="animation">
+        <ul class="boxes">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

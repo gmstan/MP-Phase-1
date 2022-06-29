@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Profile Page</title>
+  <script src="../../JS/script.js"></script>
+  <script src="../../JS/querylib.js"></script>
+  <script src="../../JS/checkgame.js"></script>
+  <link rel="stylesheet" href="../../CSS/editprof.css">
+</head>
+
+<body>
+  
+  <div class="border">
+    <div class="main">
+      <form action= "/add-game"  method="post" enctype ="multipart/form-data">
+      <p id="error"></p>
+       <h3>Title: <input type="text" name="title" id="title" required></h3><br>
+    <div class ="container">
+      <h3>Image on Homescreen:</h3>
+        <img id="displaypic" style="width:200px;height:200px"><br>
+         <input type="file" id="image1" name="image1" onchange="loadFile(event)" required> <br />
+        <h3>Main Image on Game page:</h3>
+        <img id="coverpic" style="width:200px;height:200px"><br>
+         <input type="file" id="image2" name="image2" onchange="loadFile2(event)" required> <br />
+    </div>
+
+      <div class="break"></div>
+
+        <h3>Description</h3>
+          <input type="text" name="description" id="description" size="70" style=" padding:20px 10px; line-height:25px;" required>
+
+        <h3>Genre: <input type="text" id="genre" name="genre" required></h3>
+
+        <center>  
+          <button style="float:unset" id="save" type="submit">Add Game</button>
+        </center>
+        </form>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Game Library Manager</title>
+  <link href="../CSS/style.css" rel="stylesheet" type="text/css" />
+  <script src="../../JS/script.js"></script>
+  <script src="../../JS/querylib.js"></script>
+  <script src="../../JS/index.js"></script>
+</head>
+
+<body>  
+    <div id = "Topbuttons">
+
+            <form action="/add" method="put"><button id="add">Add Game</button></form>
+            <form action="/log-out" method="get"><button id="logout" >Log out</button></form>
+            <form action='/view-profile' method="get"><button id="viewprofile">View Profile</button></form>
+            <form action='/go-search' method="get"><button id="search"> Search Game </button> </form>
+
+        <div id="main">
+            <h1 style="text-align: center;">My Library</h1>
+        </div>
+    </div>
+    <dd id="display">
+        {{#each display}}
+            <input type="image" src="../{{this.image1}}" id = 'games' onclick="getGame(&quot;{{this.title}}&quot;)" alt="{{this.title}}">
+        {{/each}}
+
+    </dd>
+
+    <!-- Animated Background Boxes -->
+    <div class="animation">
+        <ul class="boxes">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

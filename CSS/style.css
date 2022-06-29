@@ -1,187 +1,197 @@
 
+*{
+  font-family: sans-serif;
+}
+
 body{
     background: linear-gradient(#5fbfff,#294e5f);
-    height:100vh;
-}
-.animation .boxes{
-  z-index: -1;
-}
-.boxes{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height:100vh;  
 }
 
-.boxes li{
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 25px;
-    height: 25px;
-    background: rgba(255,255,255,0.2);
-    animation: animate 20s linear infinite;
-    bottom: -150px;
-}
-
-.boxes li:nth-child(1){
-    left:86%;
-    width: 80px;
-    height: 80px;
-    animation-delay:0s;
-}
-.boxes li:nth-child(2){
-    left:10%;
-    width: 50px;
-    height: 50px;
-    animation-delay:1.5s;
-    animation-duration: 10s;
-}
-.boxes li:nth-child(3){
-    left:70%;
-    width: 100px;
-    height: 100px;
-    animation-delay: 5.5s;
-}
-.boxes li:nth-child(4){
-    left:42%;
-    width: 150px;
-    height: 150px;
-    animation-delay:0s;
-    animation-duration: 15s;
-}
-.boxes li:nth-child(5){
-    left:65%;
-    width: 35px;
-    height: 35px;
-    animation-delay:0s;
-
-}
-.boxes li:nth-child(6){
-    left:18%;
-    width: 110px;
-    height: 110px;
-    animation-delay:3.5s;
-}
-@keyframes animate{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity: 1;
+/* { */
+    .animation .boxes{
+      z-index: -1;
     }
-    100%{
-        transform:translateY(-800px) rotate(360deg);
-        opacity: 1;
+    .boxes{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
-}
+    .boxes li{
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 25px;
+        height: 25px;
+        background: rgba(255,255,255,0.2);
+        animation: animate 20s linear infinite;
+        bottom: -150px;
+    }
+    .boxes li:nth-child(1){
+        left:86%;
+        width: 80px;
+        height: 80px;
+        animation-delay:0s;
+    }
+    .boxes li:nth-child(2){
+        left:10%;
+        width: 50px;
+        height: 50px;
+        animation-delay:1.5s;
+        animation-duration: 10s;
+    }
+    .boxes li:nth-child(3){
+        left:70%;
+        width: 100px;
+        height: 100px;
+        animation-delay: 5.5s;
+    }
+    .boxes li:nth-child(4){
+        left:42%;
+        width: 150px;
+        height: 150px;
+        animation-delay:0s;
+        animation-duration: 15s;
+    }
+    .boxes li:nth-child(5){
+        left:65%;
+        width: 35px;
+        height: 35px;
+        animation-delay:0s;
+    }
+    .boxes li:nth-child(6){
+        left:18%;
+        width: 110px;
+        height: 110px;
+        animation-delay:3.5s;
+    }
+    @keyframes animate{
+        0%{
+            transform:translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100%{
+            transform:translateY(-800px) rotate(360deg);
+            opacity: 1;
+        }
+    }
+/* } *//* Divinector. (2019, April 5). Animated Background with Pure CSS and Html | No Javascript no Jquery [Video]. Youtube. https://www.youtube.com/watch?v=5RoXCs54CN8 */
 
-
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 8px 8px 8px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    color: darkgray;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
     transition: margin-left .5s;
-    padding: 20px;
+    padding: 0px;
   }
-#viewprofile {
-    background-color: #0a76a4;
-    border: none;
+
+  #viewprofile {
+    background-color: rgb(10, 118, 164);
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 20px 2px;
+    margin: 20px 10px 0 0;
     cursor: pointer;
     float: right;
+    border-radius: 16px;
 }
+
 #viewprofile:hover {
-    background-color: #0a76a4;
+    background-color: #3ab0e2;
     color:yellow;
 }
-  #logout{
-    background-color: #fc081c;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 2px;
-    cursor: pointer;
-    float: right;
-  }
- #logout:hover{
-    color:yellow;
-  }
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  
-  .libraryButton{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 2px;
-    cursor: pointer;
-  }
-  
-   a:hover, a:active{
-    color:yellow;
-    background-color: green dark;
-  
-  }
-  .gamebox{
-    position: relative;
-    background-color: lightblue;
-    width:150px;
-    height:200px;
-    border:1px solid black;
-    float:left;
-    margin: 15px 10px 0 0;
-  }
+
+#logout{
+  background-color: #c71726;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 40px 0 10px;
+  cursor: pointer;
+  float: right;
+  border-radius: 16px;
+}
+
+#logout:hover{
+  background-color: #eb2c3c;
+  color:yellow;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#add{
+  background-color: #4CAF50;
+  border: 2px solid rgb(42, 100, 70);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px 0 38px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+#add:hover{
+  background-color: #4fcc53;
+}
+
+  a:hover, a:active{
+  color:yellow;
+  background-color: green dark;
+
+}
+.gamebox{
+  position: relative;
+  background-color: lightblue;
+  width:150px;
+  height:200px;
+  border:1px solid black;
+  float:left;
+  margin: 15px 10px 0 0;
+}
+
+#games{
+  position: relative;
+  width:180px;
+  height:250px;
+  border:1px solid black;
+  float:left;
+  margin: 20px 20px 0 0;
+}
+
+#games:hover{
+  transition:0.5s;
+  transform:scale(1.11);
+}
+
+#search{
+  background-color: rgb(10, 118, 164);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid black;
+  margin: 20px 20px 0 0;
+  cursor: pointer;
+  float: right;
+  border-radius: 16px;
+  position:relative;
+}
+
+#search:hover{
+  background-color: #3ab0e2;
+  color:yellow;
+}
