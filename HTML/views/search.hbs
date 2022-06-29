@@ -11,7 +11,7 @@
 
 <body>
     <div id = "Topbuttons">
-        <button id="home" style="float: left" onclick="goHomeFromSearch()">Home</button>
+        <form action="/home" method="get"><button id="home" style="float: left" onclick="goHomeFromSearch()">Home</button></form>
         <br><br><br><br>
         <center>
         <div id="main">
@@ -25,6 +25,8 @@
             <div class="searchbar">
                 <form style="font-weight:bold; font-size: 20px;" action= "/search" method="get">Game: <input type="text" placeholder="Search a Game" name="searchvalue"></form>
             </div>
+            <br>
+            <p id="error"></p>
         </center>
     </dd>
     

@@ -293,6 +293,11 @@ app.get('/checkuser', (req, res)=>{
         res.send(result)
     })
 })
+app.get('/checkacc', (req, res)=>{
+    Account.findOne({username: req.query.name,pass:req.query.pas}, function(err, result){
+        res.send(result)
+    })
+})
 app.get('/checkgame', (req, res)=>{
     Account.findOne({username:acc}, function(err, user){
        res.send(user)
@@ -403,19 +408,29 @@ app.post('/add-game',(req,res)=>{
     
 });
 
+app.get('/go-search',(req,res)=>
+{
+    res.render('search.hbs');
+});
+
 app.get('/search',(req,res)=>{
+    console.log("searching");
     Account.findOne({username: acc}).exec(function(err, user){
         if(err){
     
-            }
-            else{
-                counter = 0
-                for(let i = 0; i < user.libgames.length; i++){
-                    if(user.libgames[i].title == req.query){
-                        counter = i
-                        break
-                    }
+        }
+        else{
+            counter = -1;
+            for(let i = 0; i < user.libgames.length; i++){
+                if(user.libgames[i].title == req.query){
+                    counter = i;
+                    console.log(counter);
+                    break;
                 }
+            }
+            console.log(counter);
+            if(counter!=-1)
+            {
                 res.render("game.hbs",{
                     title : user.libgames[counter].title,
                     image: user.libgames[counter].image2,
@@ -423,7 +438,14 @@ app.get('/search',(req,res)=>{
                     genre: user.libgames[counter].genre,
                 })
             }
-        }) 
+            else
+            {
+                //game title does not exist
+                res.redirect('/home');
+            }
+           
+        }
+    }) 
 });
 
 app.post('/delete-game', (req, res)=>{

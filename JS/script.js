@@ -79,17 +79,10 @@ function getGame(game){
   location.href="http://localhost:3000/game-direct";
 }
 
-function searchByGenre(){
-  window.location.href="genre.html";
-}
+// function search(){
+//   location.href="search.html";
+// }
 
-function searchByRating(){
-  window.location.href="rating.html";
-}
-
-function searchByName(){
-  window.location.href="search.html";
-}
 function loadFile(event){
   var output = document.getElementById('displaypic');
   output.src = URL.createObjectURL(event.target.files[0])
