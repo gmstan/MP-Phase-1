@@ -1,8 +1,8 @@
 *{
     font-family: sans-serif;
-  }
+}
 
-#forms {
+#forms{
     margin: auto;
     width: 40%;
     border: 3px solid rgb(241, 240, 237);
@@ -10,13 +10,16 @@
     float:right;
     margin: 0 30px 0 0;
 }
+
 #forms h1{
     color:rgb(245, 194, 26);
     font-family:'Courier New', Courier, monospace;
 }
+
 #forms label{
     color:rgb(241, 241, 238);
 }
+
 body{
     background-image: url('../Images/loginPhoto.jpg');
     background-size: 1920px;
@@ -24,10 +27,12 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
+
 #blank{
     width:250px;
     height:250px;
 }
+
 #loginbutton{
     background-color: #4CAF50;
     border: none;
@@ -40,13 +45,16 @@ body{
     margin: 17px 2px;
     cursor: pointer;
 }
+
 #loginbutton:hover{
   color:yellow;
   background-color: #6dcf71;
 }
+
 #error{
     color: rgb(241, 12, 12)
 }
+
 #registerbutton{
     background-color: #4CAF50;
     border: none;
@@ -58,8 +66,8 @@ body{
     font-size: 16px;
     margin: 5px 2px;
     cursor: pointer;
-    
 }
+
 #registerbutton:hover{
     color:yellow;
     background-color: #6dcf71;

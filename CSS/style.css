@@ -104,95 +104,95 @@ body{
     color:yellow;
 }
 
-  #logout{
-    background-color: #c71726;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 40px 0 10px;
-    cursor: pointer;
-    float: right;
-    border-radius: 16px;
-  }
+#logout{
+  background-color: #c71726;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 40px 0 10px;
+  cursor: pointer;
+  float: right;
+  border-radius: 16px;
+}
 
-  #logout:hover{
-    background-color: #eb2c3c;
-    color:yellow;
-  }
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+#logout:hover{
+  background-color: #eb2c3c;
+  color:yellow;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
-  #add{
-    background-color: #4CAF50;
-    border: 2px solid rgb(42, 100, 70);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 2px 0 38px;
-    cursor: pointer;
-    border-radius: 16px;
-  }
+#add{
+  background-color: #4CAF50;
+  border: 2px solid rgb(42, 100, 70);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px 0 38px;
+  cursor: pointer;
+  border-radius: 16px;
+}
 
-  #add:hover{
-    background-color: #4fcc53;
-  }
-  
-   a:hover, a:active{
-    color:yellow;
-    background-color: green dark;
-  
-  }
-  .gamebox{
-    position: relative;
-    background-color: lightblue;
-    width:150px;
-    height:200px;
-    border:1px solid black;
-    float:left;
-    margin: 15px 10px 0 0;
-  }
+#add:hover{
+  background-color: #4fcc53;
+}
 
-  #games{
-    position: relative;
-    width:180px;
-    height:250px;
-    border:1px solid black;
-    float:left;
-    margin: 20px 20px 0 0;
-  }
+  a:hover, a:active{
+  color:yellow;
+  background-color: green dark;
 
-  #games:hover{
-    transition:0.5s;
-    transform:scale(1.11);
-  }
+}
+.gamebox{
+  position: relative;
+  background-color: lightblue;
+  width:150px;
+  height:200px;
+  border:1px solid black;
+  float:left;
+  margin: 15px 10px 0 0;
+}
+
+#games{
+  position: relative;
+  width:180px;
+  height:250px;
+  border:1px solid black;
+  float:left;
+  margin: 20px 20px 0 0;
+}
+
+#games:hover{
+  transition:0.5s;
+  transform:scale(1.11);
+}
 
 
-  #search{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border: 2px solid black;
-    margin: 20px 0px 0 0;
-    cursor: pointer;
-    float: right;
-    border-radius: 16px;
-    position:relative;
-  }
+#search{
+  background-color: rgb(10, 118, 164);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid black;
+  margin: 20px 0px 0 0;
+  cursor: pointer;
+  float: right;
+  border-radius: 16px;
+  position:relative;
+}
 
-  #search:hover{
-    background-color: #3ab0e2;
-    color:yellow;
-  }
+#search:hover{
+  background-color: #3ab0e2;
+  color:yellow;
+}
