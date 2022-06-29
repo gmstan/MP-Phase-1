@@ -32,15 +32,12 @@ body{
 
 button{
   background-color: #1ba099;
-  /* border: 1px; */
   color: black;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
-  /* display: inline-block; */
   font-size: 14px;
   position: relative;
-  /* left: 500px; */
   float: right;
   top:50px;
   cursor: pointer;
@@ -56,6 +53,17 @@ button{
   font-size: 18px;
   cursor: pointer;
   border-radius: 10px;
+  margin-bottom:10px;
+}
+
+#home:hover{
+  background-color: #34a59f;
+  color:yellow;
+}
+
+#edit:hover{
+  background-color: #1fbbb3;
+  color:yellow;
 }
 
 #delete{
@@ -70,10 +78,14 @@ button{
   margin-left: 5px;
 }
 
-button:hover{
+#delete:hover{
+  background-color: rgb(173, 51, 51);
+}
+
+/* button:hover{
   color:yellow;
   cursor: pointer;
-}
+} */
 
 img{
     height:100px;

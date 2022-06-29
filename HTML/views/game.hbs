@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <button style="left:0px;" id="homepage" onclick="goHomeFromGame()">Home</button>
+    <form action="/home" method="get"><button style="left:0px; float:unset" id="home" onclick="goHomeFromPfp()">Home</button></form>
   <div class="main">
     <h1 class="title">{{title}}</h1>
 
-    <img src="{{this.image}}" >   {{!-- idk if needed alt="Minecraft Wide" --}}
+    <img src="{{this.image}}" >
 
     <div class="break"></div>
 
@@ -29,7 +29,6 @@
   </div>
   <center>
     <div style="position:relative; top: -40px">
-      <form action="/home" method="get"><button id="home" onclick="goHomeFromPfp()" style="float:unset" >Home</button></form>
       <form action="/delete-game" method="post"><button id="delete" style="float:unset; background-color: rgb(139, 46, 46)">Delete Game</button></form>
     </div>
   </center>

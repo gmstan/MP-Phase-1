@@ -42,7 +42,6 @@ app.get('/log-out', (req, res)=>{
 })
 
 app.get('/edit-details', (req, res)=>{
-    //get details
     Account.findOne({username:acc}, (err, user)=>{
         if(err){
             console.log(err);
@@ -109,7 +108,6 @@ app.post('/save-edit', async(req, res)=>{
                                         console.log(err)
                                     }
                                     else{
-                                        //res.send(updatedUser)
                                         res.redirect('/')
                                     }
                                 })
@@ -221,7 +219,6 @@ app.post('/register-details', (req,res)=>{
                                 console.log(err)
                             }
                             else{
-                                //res.send(updatedUser)
                                 res.redirect('/')
                             }
                         })
@@ -252,7 +249,6 @@ app.post('/register-details', (req,res)=>{
                             console.log(err)
                         }
                         else{
-                            //res.send(updatedUser)
                             res.redirect('/')
                         }
                     })
@@ -322,7 +318,6 @@ app.post('/register-post', async(req, res)=>{
                         games: 0,
                     },
                         (error, account)=>{
-                            //console.log(error, account);
                     })
                     acc = req.body.username
                     res.redirect('/profile-register')
@@ -332,7 +327,6 @@ app.post('/register-post', async(req, res)=>{
                     res.redirect('/register');
                 }
             })
-            // code here for adding to the database
         }
         catch{
             res.redirect('/register');
@@ -400,16 +394,12 @@ app.post('/add-game',(req,res)=>{
                         console.log("error");
                     }
                     else{
-                        console.log("good");
                     }
                 }
             )     
         
         res.redirect('/home');
-    })
-
-    
-    
+    })   
 });
 
 app.get('/go-search',(req,res)=>
@@ -418,7 +408,6 @@ app.get('/go-search',(req,res)=>
 });
 
 app.get('/search',(req,res)=>{
-    console.log("searching");
     Account.findOne({username: acc}).exec(function(err, user){
         if(err){
     
@@ -445,16 +434,13 @@ app.get('/search',(req,res)=>{
                 res.render('search.hbs',{
                     msg : "Game does not exist",
                 })
-            }
-           
+            }         
         }
     }) 
 });
 
 app.post('/delete-game', (req, res)=>{
     Account.findOne({username:acc}, (err, user)=>{
-        console.log("Deleted")
-        console.log(currgame)
         if (err){
             console.log(err)
         }
@@ -482,7 +468,7 @@ app.post('/delete-game', (req, res)=>{
                     if (err){
                         console.log(err);
                     }
-                    console.log("file deleted");
+                    console.log("File Deleted");
                 })
             }
 
@@ -492,7 +478,7 @@ app.post('/delete-game', (req, res)=>{
                     if (err){
                         console.log(err);
                     }
-                    console.log("file deleted");
+                    console.log("File Deleted");
                 })
             }
 
@@ -503,7 +489,6 @@ app.post('/delete-game', (req, res)=>{
                         console.log("error");
                     }
                     else{
-                        console.log("good");
                         res.redirect('/home');
                     }
                 }

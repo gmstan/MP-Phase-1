@@ -175,7 +175,6 @@ body{
   transform:scale(1.11);
 }
 
-
 #search{
   background-color: rgb(10, 118, 164);
   color: white;
@@ -185,7 +184,7 @@ body{
   display: inline-block;
   font-size: 16px;
   border: 2px solid black;
-  margin: 20px 0px 0 0;
+  margin: 20px 20px 0 0;
   cursor: pointer;
   float: right;
   border-radius: 16px;

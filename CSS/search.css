@@ -83,90 +83,33 @@
 
 
 #searchbar{
-    position: absolute;
-    height: 200px;
-    width: 100px;
-  }
-
-  #searchbar:hover {
-    background-color: #3ab0e2;
-    color:yellow;
+  position: absolute;
+  height: 200px;
+  width: 100px;
 }
 
-  #unfiltered{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
-  }
+#searchbar:hover {
+  background-color: #3ab0e2;
+  color:yellow;
+}
 
-  #unfiltered:hover{
-    background-color: #3ab0e2;
-    color:yellow;
-  }
-
-  #genre{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
-  }
-
-  #genre:hover{
-    background-color: #3ab0e2;
-    color:yellow;
-  }
-
-  #rating{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
-  }
-
-  #rating:hover{
-    background-color: #3ab0e2;
-    color:yellow;
-  }
-
-  #home{
-    background-color: rgb(10, 118, 164);
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px 0 0;
-    cursor: pointer;
-    float: left;
-    border-radius: 16px;
+#home{
+  background-color: rgb(10, 118, 164);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 10px 0 0;
+  cursor: pointer;
+  float: left;
+  border-radius: 16px;
 }
 
 #home:hover{
-    background-color: #3ab0e2;
-    color:yellow;
+  background-color: #3ab0e2;
+  color:yellow;
 }
 
 #searchbar{
@@ -174,10 +117,11 @@
   position: relative;
   display: flex;
 }
+
 #enter{
   background-color: #4CAF50;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 5px;
   text-align: center;
   text-decoration: none;
@@ -185,8 +129,10 @@
   font-size: 12px;
   margin: 0px 0px 0px 10px;
   cursor: pointer;
-  
+  border: 1px solid black;
+  border-radius: 16px;
 }
+
 #error{
   color: rgb(241, 12, 12);
 }
