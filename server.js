@@ -422,13 +422,11 @@ app.get('/search',(req,res)=>{
         else{
             counter = -1;
             for(let i = 0; i < user.libgames.length; i++){
-                if(user.libgames[i].title == req.query){
+                if(user.libgames[i].title == req.query.searchvalue){
                     counter = i;
-                    console.log(counter);
                     break;
                 }
             }
-            console.log(counter);
             if(counter!=-1)
             {
                 res.render("game.hbs",{
@@ -440,7 +438,9 @@ app.get('/search',(req,res)=>{
             }
             else
             {
-                //game title does not exist
+                //game title does not exist popup
+
+                
                 res.redirect('/home');
             }
            
