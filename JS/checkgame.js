@@ -4,16 +4,18 @@ $(document).ready(function(){
         var title= $('#title').val();
         $.get('/checkgame', {gametitle: title}, function (result) {
             $('#error').css('color', 'red');
-            let namechecker = false;
-        
+            let checker = false;
+            
             for(let counter = 0; counter < result.libgames.length; counter++){
                 if (result.libgames[counter].title == title){
-                    namechecker = true
+                    // result.libgames[counter].title == newgame.title || result.libgames[counter].image1 == newgame.image1 || result.libgames[counter].image2 == newgame.image2
+                    // for the image names
+                    checker = true
                     break
                 }
             }
-            
-            if(namechecker == true) {
+            console.log(checker)
+            if(checker == true) {
                 $('#title').css('background-color', 'red');
                 $('#error').text('Game already exists');
                 $('#save').css('background-color', 'red')

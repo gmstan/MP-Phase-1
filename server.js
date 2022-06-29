@@ -292,7 +292,16 @@ app.post('/login-post', (req, res)=>{
        }
    })
  });
-
+app.get('/checkuser', (req, res)=>{
+    Account.findOne({username: req.query.name}, function(err, result){
+        res.send(result)
+    })
+})
+app.get('/checkacc', (req, res)=>{
+    Account.findOne({username: req.query.name,pass:req.query.pas}, function(err, result){
+        res.send(result)
+    })
+})
 app.get('/checkgame', (req, res)=>{
     Account.findOne({username:acc}, function(err, user){
        res.send(user)
@@ -367,7 +376,7 @@ app.post('/add-game',(req,res)=>{
     Account.findOne({username:acc}, (err,user) => {
         
 
-            console.log(req.body.error1);
+        
             const image1 = req.files.image1
             const image2 = req.files.image2
         
