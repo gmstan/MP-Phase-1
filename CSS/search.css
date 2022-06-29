@@ -174,3 +174,19 @@
   position: relative;
   display: flex;
 }
+#enter{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px 0px 10px;
+  cursor: pointer;
+  
+}
+#error{
+  color: rgb(241, 12, 12);
+}

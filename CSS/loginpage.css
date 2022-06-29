@@ -44,6 +44,9 @@ body{
   color:yellow;
   background-color: #6dcf71;
 }
+#error{
+    color: rgb(241, 12, 12)
+}
 #registerbutton{
     background-color: #4CAF50;
     border: none;

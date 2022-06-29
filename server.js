@@ -278,12 +278,16 @@ app.post('/login-post', (req, res)=>{
                         res.redirect("/home");
                     }
                     else{
-                        console.log("username or password did not match")
+                       res.render("index.hbs", {
+                        errormsg : "Invalid Credentials",
+                       })
                     }
                })
            }
            else{
-                res.redirect('/')
+            res.render("index.hbs", {
+                errormsg : "Invalid Credentials",
+               })
            }
        }
    })
@@ -438,10 +442,9 @@ app.get('/search',(req,res)=>{
             }
             else
             {
-                //game title does not exist popup
-
-                
-                res.redirect('/home');
+                res.render('search.hbs',{
+                    msg : "Game does not exist",
+                })
             }
            
         }
