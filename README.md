@@ -6,7 +6,6 @@ Machine Project for CCAPDEV2021T2
 
 PCS Game Manager is a game library built for people who play video games. This program will allow users to save the details of their favorite games in this library.
 
-
 ## Content of the Repository
 - [CSS] - This folder contains the CSS files used for the design of HBS pages.
 - [database] - This folder contains the Mongoose Schema Models used in this project.
@@ -21,6 +20,9 @@ PCS Game Manager is a game library built for people who play video games. This p
 - MongoDB
 - Mongoose
 - Express
+
+## Link to HEROKU APP
+- https://mp-phase3.herokuapp.com/
 
 ## Local Set Up
 1. MongoDB is installed and running.
